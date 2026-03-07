@@ -1,1 +1,1 @@
-# void-sentinel-orbital-outpost
+# Void Sentinel: Orbital Outpost
