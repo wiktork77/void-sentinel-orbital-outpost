@@ -1,1 +1,1 @@
-# Void Sentinel: Orbital Outpost
+# Void Sentinel: Orbital Outpost 2
