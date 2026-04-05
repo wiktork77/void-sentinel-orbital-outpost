@@ -15,4 +15,13 @@ public class Level
     {
         return events;
     }
+
+
+    public void AddEnemies(EnemyType type, int count, float interval, WaypointsConstants.WaypointRoute route)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            addEvent(new LevelEvent(type, interval, route));
+        }
+    }
 }
