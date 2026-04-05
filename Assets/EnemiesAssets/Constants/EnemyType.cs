@@ -1,0 +1,19 @@
+using UnityEngine;
+
+public enum EnemyType
+{
+    SCARAB_DRONE,
+    RUST_WALKER,
+    HEAVY_BEHEMOTH,
+    SCRAP_TITAN,
+
+    FROST_DRIFTER,
+    ICE_CRAWLER,
+    CRYO_COLLOSSUS,
+    SENTINEL_CORE_BOSS,
+
+    SPORE_ROLLER,
+    VIPER_ROOT,
+    REGEN_BULB,
+    HIVE_MATRIARCH
+}
