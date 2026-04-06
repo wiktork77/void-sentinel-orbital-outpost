@@ -15,7 +15,7 @@ public class AresMobSpawnerScript : MonoBehaviour
     private LevelEvent currentLevelEvent;
 
     private float nextEventTimer = 0f;
-    private float timeToNextEvent;
+    private float timeToNextEvent = 0f;
 
     private bool currentLevelOngoing = true;
 
@@ -26,6 +26,7 @@ public class AresMobSpawnerScript : MonoBehaviour
 
 
 
+
     void Start()
     {
         mapLogicScript = GameObject.FindGameObjectWithTag("AresMapLogic").GetComponent<AresMapLogicScript>();
@@ -33,18 +34,20 @@ public class AresMobSpawnerScript : MonoBehaviour
 
         LoadScenario();
         LoadCurrentLevel();
-        LoadCurrentLevelEvent();
-        SpawnEnemy();
     }
 
     void Update()
     {
-        if (currentLevelOngoing)
+        if (!mapLogicScript.IsGameFinished)
         {
-            CheckIfShouldSpawnEnemy();
-        }
-        else {
-            CheckIfShouldStartNextLevel();
+            if (currentLevelOngoing)
+            {
+                CheckIfShouldSpawnEnemy();
+            }
+            else
+            {
+                CheckIfShouldStartNextLevel();
+            }
         }
     }
 
@@ -67,8 +70,9 @@ public class AresMobSpawnerScript : MonoBehaviour
         if (nextLevelTimer < timeToNextLevel)
         {
             nextLevelTimer += Time.deltaTime;
+            mapLogicScript.updateTimeToNextWave(timeToNextLevel - nextLevelTimer);
         }
-        else
+        else if (currentLevelNumber < scenario.getLevelCount())
         {
             IncreaseLevel();
             nextLevelTimer = 0;
@@ -99,8 +103,20 @@ public class AresMobSpawnerScript : MonoBehaviour
 
         EnemyScript enemyScript = newEnemy.GetComponent<EnemyScript>();
         enemyScript.setupRoute(WaypointsRepository.GetRoute(currentLevelEvent.RouteType));
-        enemyScript.SetOnReachEndCallback((damage) => mapLogicScript.loseHealth(damage));
-        enemyScript.SetOnDefeatedCallback((currencyLoot) => mapLogicScript.addCurrency(currencyLoot));
+        enemyScript.SetOnReachEndCallback((damage) => {
+            mapLogicScript.loseHealth(damage);
+            mapLogicScript.removeEnemy();
+        });
+        enemyScript.SetOnDefeatedCallback((currencyLoot) => {
+            mapLogicScript.addCurrency(currencyLoot);
+            mapLogicScript.removeEnemy();
+        });
+
+        mapLogicScript.addEnemy();
+
+        Debug.Log("Current Level Number: " + currentLevelNumber);
+        Debug.Log("Currenct level Event number: " + currentLevelEventIndex);
+        Debug.Log("Current enemy: " + currentLevelEvent.EnemyType);
 
         moveToNextLevelEvent();
     }
@@ -109,6 +125,8 @@ public class AresMobSpawnerScript : MonoBehaviour
     private void LoadCurrentLevel()
     {
         currentLevel = scenario.getLevel(currentLevelNumber);
+        LoadCurrentLevelEvent();
+        nextEventTimer = timeToNextEvent;
     }
 
     private void LoadCurrentLevelEvent()
@@ -125,6 +143,7 @@ public class AresMobSpawnerScript : MonoBehaviour
         {
             // SO ITS AN INDICATOR THAT ALL EVENTS IN CURRENT LEVEL ALREADY HAPPENED AND CAN PRELOAD TIMER / SOMETHING ELSE
             // FOR NEXT LEVEL IN UPDATE()
+            mapLogicScript.activateTimeToNextWaveTimer();
             currentLevelOngoing = false;
         }
     }
@@ -136,6 +155,7 @@ public class AresMobSpawnerScript : MonoBehaviour
 
         mapLogicScript.nextLevel();
         LoadCurrentLevel();
+        mapLogicScript.deactivateTimeToNextWaveTimer();
         currentLevelOngoing = true;
     }
 
@@ -144,4 +164,7 @@ public class AresMobSpawnerScript : MonoBehaviour
         currentLevelEventIndex += 1;
         LoadCurrentLevelEvent();
     }
+
+
+
 }

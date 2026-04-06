@@ -1,5 +1,7 @@
-using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AresMapLogicScript : MonoBehaviour
 {
@@ -7,11 +9,25 @@ public class AresMapLogicScript : MonoBehaviour
     public TMP_Text currencyText;
     public TMP_Text levelProgressText;
 
-    private int health = AresInitialResources.ARES_INITIAL_HEALTH;
-    private int currency = AresInitialResources.ARES_INITIAL_CURRENCY;
 
-    private int levelsTotal = 10;
+    public GameObject timeToNextLevelTimer;
+    public TMP_Text timeToNextLevelText;
+
+    public GameObject gameOverScreen;
+    public GameObject gameWonScreen;
+
+    private int health = AresMapConstants.ARES_INITIAL_HEALTH;
+    private int currency = AresMapConstants.ARES_INITIAL_CURRENCY;
+
+    private int levelsTotal = AresMapConstants.ARES_LEVEL_COUNT;
     private int currentLevel = 1;
+    private int enemiesCount = 0;
+
+    private int timeToNextWave;
+
+    private bool isGameFinished;
+
+    public bool IsGameFinished => isGameFinished;
 
     void Start()
     {
@@ -19,19 +35,29 @@ public class AresMapLogicScript : MonoBehaviour
         currencyText.text = currency.ToString();
         updateHealthResourceText();
         updateCurrencyResourceText();
+        updateLevelProgress();
     }
     void Update()
     {
-        if (health <= 0)
+        if (health <= 0 && !isGameFinished)
         {
-            // GAME OVER
+            isGameFinished = true;
+            GameOver();
+        }
+        else if (currentLevel >= levelsTotal && health > 0 && enemiesCount <= 0 && !isGameFinished)
+        {
+            isGameFinished = true;
+            GameWon();
         }
     }
 
     public void loseHealth(int amount)
-    { 
-        health -= amount;
-        updateHealthResourceText();
+    {
+        if (!IsGameFinished) 
+        {
+            health -= amount;
+            updateHealthResourceText();
+        }
     }
 
     public void addCurrency(int amount)
@@ -88,5 +114,64 @@ public class AresMapLogicScript : MonoBehaviour
         }
     }
 
+
+    public void activateTimeToNextWaveTimer()
+    {
+        if (currentLevel < levelsTotal)
+        {
+            timeToNextLevelTimer.SetActive(true);
+        }
+    }
+
+    public void deactivateTimeToNextWaveTimer()
+    {
+        timeToNextLevelTimer.SetActive(false);
+    }
+
+    public void updateTimeToNextWave(float time)
+    {
+        timeToNextLevelText.text = "Nastêpna fala za " + time.ToString("F2") + " s";
+    }
+
+    private void GameOver()
+    {
+        gameOverScreen.SetActive(true);
+        deactivateAllUnnecessaryGameFinished();
+    }
+
+    private void GameWon()
+    {
+        gameWonScreen.SetActive(true);
+        deactivateAllUnnecessaryGameFinished();
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void deactivateAllUnnecessaryGameFinished()
+    {
+        timeToNextLevelTimer.SetActive(false);
+    }
+
+    private void deactivateAllUnnecessaryGameWon()
+    {
+        timeToNextLevelTimer.SetActive(false);
+    }
+
+    public void addEnemy()
+    {
+        enemiesCount++;
+    }
+
+    public void removeEnemy()
+    {
+        enemiesCount--;
+        Debug.Log(enemiesCount + " enemies left");
+    }
+
     public int CurrentLevel => currentLevel;
+
+    public int TimeToNextWave => timeToNextWave;
 }

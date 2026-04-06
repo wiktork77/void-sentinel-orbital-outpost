@@ -13,4 +13,9 @@ public class MapLevelsScenario
     { 
         return levels[level];
     }
+
+    public int getLevelCount()
+    {
+        return levels.Count;
+    }
 }
