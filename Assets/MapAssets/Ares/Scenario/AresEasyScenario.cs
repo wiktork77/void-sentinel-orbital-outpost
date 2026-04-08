@@ -69,14 +69,14 @@ public class AresEasyScenario : PredefinedScenario
         //levels[10].AddEnemies(EnemyType.HEAVY_BEHEMOTH, 5, 2.0f, defaultWaypoint);
 
 
-        levels[1].AddEnemies(EnemyType.SCARAB_DRONE, 5, 0.5f, defaultWaypoint);
+        levels[1].AddEnemies(EnemyType.SCARAB_DRONE, 25, 0.1f, defaultWaypoint);
 
         levels[1].AddEnemies(EnemyType.SCARAB_DRONE, 5, 0.5f, defaultWaypoint);
         levels[2].AddEnemies(EnemyType.SCARAB_DRONE, 5, 0.5f, defaultWaypoint);
 
         levels[3].AddEnemies(EnemyType.RUST_WALKER, 2, 0.5f, defaultWaypoint);
 
-        levels[4].AddEnemies(EnemyType.SCRAP_TITAN, 6, 0.5f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+        levels[4].AddEnemies(EnemyType.SCRAP_TITAN, 6, 0.5f, defaultWaypoint);
     }
 
     public override MapLevelsScenario getScenario()

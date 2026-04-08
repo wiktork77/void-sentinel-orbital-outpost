@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class AresMapLogicScript : MonoBehaviour
 {
+    public static AresMapLogicScript Instance;
     public TMP_Text healthText;
     public TMP_Text currencyText;
     public TMP_Text levelProgressText;
@@ -18,6 +19,7 @@ public class AresMapLogicScript : MonoBehaviour
 
     private int health = AresMapConstants.ARES_INITIAL_HEALTH;
     private int currency = AresMapConstants.ARES_INITIAL_CURRENCY;
+    public int currentCurrency => currency;
 
     private int levelsTotal = AresMapConstants.ARES_LEVEL_COUNT;
     private int currentLevel = 1;
@@ -28,6 +30,12 @@ public class AresMapLogicScript : MonoBehaviour
     private bool isGameFinished;
 
     public bool IsGameFinished => isGameFinished;
+
+    void Awake()
+    {
+        // Upewniamy się, że to jedyna kopia logiki na scenie
+        if (Instance == null) Instance = this;
+    }
 
     void Start()
     {
@@ -130,7 +138,7 @@ public class AresMapLogicScript : MonoBehaviour
 
     public void updateTimeToNextWave(float time)
     {
-        timeToNextLevelText.text = "Nast�pna fala za " + time.ToString("F2") + " s";
+        timeToNextLevelText.text = "Nast�pna fala za " + time.ToString("F2") + " s";
     }
 
     private void GameOver()
