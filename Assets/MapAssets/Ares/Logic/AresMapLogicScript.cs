@@ -29,6 +29,8 @@ public class AresMapLogicScript : MonoBehaviour
 
     private bool isGameFinished;
 
+    private bool gameWonLocked = true;
+
     public bool IsGameFinished => isGameFinished;
 
     void Awake()
@@ -52,7 +54,7 @@ public class AresMapLogicScript : MonoBehaviour
             isGameFinished = true;
             GameOver();
         }
-        else if (currentLevel >= levelsTotal && health > 0 && enemiesCount <= 0 && !isGameFinished)
+        else if (currentLevel >= levelsTotal && health > 0 && enemiesCount <= 0 && !isGameFinished && !gameWonLocked)
         {
             isGameFinished = true;
             GameWon();
@@ -178,6 +180,13 @@ public class AresMapLogicScript : MonoBehaviour
         enemiesCount--;
         Debug.Log(enemiesCount + " enemies left");
     }
+
+    public void setGameWonLocked(bool val)
+    {
+        gameWonLocked = val;
+    }
+
+    public bool isGameWonLocked => gameWonLocked;
 
     public int CurrentLevel => currentLevel;
 

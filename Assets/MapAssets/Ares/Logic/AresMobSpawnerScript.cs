@@ -98,6 +98,9 @@ public class AresMobSpawnerScript : MonoBehaviour
 
     private void SpawnEnemy()
     {
+        mapLogicScript.addEnemy();
+        mapLogicScript.setGameWonLocked(false);
+
         GameObject enemy = EnemyTypeResolver.Instance.GetPrefab(currentLevelEvent.EnemyType);
         GameObject newEnemy = Instantiate(enemy, transform.position, enemy.transform.rotation);
 
@@ -111,8 +114,6 @@ public class AresMobSpawnerScript : MonoBehaviour
             mapLogicScript.addCurrency(currencyLoot);
             mapLogicScript.removeEnemy();
         });
-
-        mapLogicScript.addEnemy();
 
         Debug.Log("Current Level Number: " + currentLevelNumber);
         Debug.Log("Currenct level Event number: " + currentLevelEventIndex);
@@ -153,11 +154,13 @@ public class AresMobSpawnerScript : MonoBehaviour
         currentLevelNumber += 1;
         currentLevelEventIndex = 0;
 
+        currentLevelOngoing = true;
+        mapLogicScript.setGameWonLocked(true);
         mapLogicScript.nextLevel();
         LoadCurrentLevel();
         mapLogicScript.deactivateTimeToNextWaveTimer();
-        currentLevelOngoing = true;
     }
+
 
     private void moveToNextLevelEvent()
     {

@@ -6,6 +6,7 @@ public class RustWalkerEnemyScript : EnemyScript
     {
         health = 100;
         damageToBase = 3;
+        currencyLoot = 15;
         speed = 3f;
     }
 

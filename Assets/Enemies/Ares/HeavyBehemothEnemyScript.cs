@@ -7,6 +7,7 @@ public class HeavyBehemothEnemyScript : EnemyScript
         health = 300;
         speed = 1f;
         damageToBase = 7;
+        currencyLoot = 10;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
