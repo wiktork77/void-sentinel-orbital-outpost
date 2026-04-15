@@ -31,7 +31,7 @@ public abstract class EnemyScript : MonoBehaviour
 
     protected virtual void Update()
     {
-        // Jeœli nie mamy celu, nie robimy nic
+        // Jeï¿½li nie mamy celu, nie robimy nic
         if (_targetWaypoint == null) return;
 
         Move();
@@ -66,14 +66,14 @@ public abstract class EnemyScript : MonoBehaviour
     {
         _currentWaypointIndex++;
 
-        // Sprawdzamy, czy to koniec œcie¿ki
+        // Sprawdzamy, czy to koniec ï¿½cieï¿½ki
         if (_currentWaypointIndex < path.Length)
         {
             _targetWaypoint = path[_currentWaypointIndex];
         }
         else
         {
-            // Przeciwnik dotar³ do koñca (np. bazy gracza)
+            // Przeciwnik dotarï¿½ do koï¿½ca (np. bazy gracza)
             ReachEnd();
         }
     }
@@ -94,22 +94,26 @@ public abstract class EnemyScript : MonoBehaviour
         Destroy(gameObject);
     }
 
-    protected virtual void Defeat()
+    public virtual void TakeDamage(float amount) 
     {
-        _onDefeatedCallback?.Invoke(currencyLoot);
-    }
+        // Rzutujemy float na int, Å¼eby pasowaÅ‚o do Twoich zmiennych
+        Debug.Log($"Enemy {health} took {amount} damage!");
+        health -= Mathf.RoundToInt(amount);
 
-    protected virtual void TakeDamage(int amount)
-    {
-        health -= amount;
+        Debug.Log($"{amount} dostaÅ‚ hita! HP: {health}");
 
         if (health <= 0)
         {
-            // FOR LATER POSSIBLE UI UPDATE
             health = 0;
-
             Defeat();
         }
+    }
+
+    protected virtual void Defeat()
+    {
+        _onDefeatedCallback?.Invoke(currencyLoot);
+        
+        Destroy(gameObject);
     }
 
     protected abstract void setEnemySpecificValues();
