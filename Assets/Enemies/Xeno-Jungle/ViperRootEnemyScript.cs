@@ -4,6 +4,7 @@ public class ViperRootEnemyScript : EnemyScript
 {
     protected override void setEnemySpecificValues()
     {
+        enemyType = EnemyType.VIPER_ROOT;
         // TODO
     }
 

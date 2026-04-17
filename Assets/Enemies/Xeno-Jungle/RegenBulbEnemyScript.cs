@@ -4,6 +4,7 @@ public class RegenBulbEnemyScript : EnemyScript
 {
     protected override void setEnemySpecificValues()
     {
+        enemyType = EnemyType.REGEN_BULB;
         // TODO 
     }
 

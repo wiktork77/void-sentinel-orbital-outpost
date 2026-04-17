@@ -5,6 +5,8 @@ public class ScrapTitanEnemyScript : EnemyScript
 {
     protected override void setEnemySpecificValues()
     {
+        enemyType = EnemyType.SCRAP_TITAN;
+
         health = 1000;
         damageToBase = int.MaxValue;
     }

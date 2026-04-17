@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class AresMapLogicScript : MonoBehaviour
     public TMP_Text healthText;
     public TMP_Text currencyText;
     public TMP_Text levelProgressText;
+
+    private MapLevelsScenario scenario;
 
 
     public GameObject timeToNextLevelTimer;
@@ -25,11 +28,17 @@ public class AresMapLogicScript : MonoBehaviour
     private int currentLevel = 1;
     private int enemiesCount = 0;
 
+    [SerializeField] private EnemyRegistrySO registry;
+
     private int timeToNextWave;
+
 
     private bool isGameFinished;
 
     public bool IsGameFinished => isGameFinished;
+
+    private List<LevelRunner> levelRunners = new();
+
 
     void Awake()
     {
@@ -39,6 +48,21 @@ public class AresMapLogicScript : MonoBehaviour
 
     void Start()
     {
+        scenario = new AresMediumScenario().getScenario();
+        Level testLevel = scenario.getLevel(1);
+        Level otherLevel = scenario.getLevel(2);
+
+        LevelRunner levelRunner1 = new LevelRunner(testLevel, registry, "DEFAULT");
+        LevelRunner levelRunner2 = new LevelRunner(otherLevel, registry, "SPECIAL");
+
+        levelRunners.Add(levelRunner1);
+        levelRunners.Add(levelRunner2);
+
+        foreach (LevelRunner levelRunner in levelRunners)
+        {
+            levelRunner.StartLevel();
+        }
+
         healthText.text = health.ToString();
         currencyText.text = currency.ToString();
         updateHealthResourceText();
@@ -47,6 +71,12 @@ public class AresMapLogicScript : MonoBehaviour
     }
     void Update()
     {
+        foreach (LevelRunner levelRunner in levelRunners)
+        {
+            levelRunner.Tick(Time.deltaTime);
+        }
+        
+
         if (health <= 0 && !isGameFinished)
         {
             isGameFinished = true;
@@ -138,7 +168,7 @@ public class AresMapLogicScript : MonoBehaviour
 
     public void updateTimeToNextWave(float time)
     {
-        timeToNextLevelText.text = "Nast�pna fala za " + time.ToString("F2") + " s";
+        timeToNextLevelText.text = "Nastepna fala za " + time.ToString("F2") + " s";
     }
 
     private void GameOver()
@@ -176,7 +206,6 @@ public class AresMapLogicScript : MonoBehaviour
     public void removeEnemy()
     {
         enemiesCount--;
-        Debug.Log(enemiesCount + " enemies left");
     }
 
     public int CurrentLevel => currentLevel;

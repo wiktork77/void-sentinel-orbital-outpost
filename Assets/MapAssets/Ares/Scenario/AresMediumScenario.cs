@@ -12,9 +12,9 @@ public class AresMediumScenario : PredefinedScenario
 
         Level level1 = new Level();
 
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 10; i++)
         {
-            level1.addEvent(new LevelEvent(EnemyType.SCARAB_DRONE, 0.5f, WaypointsConstants.WaypointRoute.ARES_DEFAULT));
+            level1.addEvent(new LevelEvent(EnemyType.SCARAB_DRONE, 0.25f, WaypointsConstants.WaypointRoute.ARES_DEFAULT));
         }
 
         levels.Add(1, level1);
@@ -22,16 +22,16 @@ public class AresMediumScenario : PredefinedScenario
 
         Level level2 = new Level();
 
-        for (int i = 0; i < 40; i++)
+        for (int i = 0; i < 20; i++)
         {
-            level1.addEvent(new LevelEvent(EnemyType.SCARAB_DRONE, 1.0f, WaypointsConstants.WaypointRoute.ARES_DEFAULT));
+            level2.addEvent(new LevelEvent(EnemyType.SCARAB_DRONE, 0.1f, WaypointsConstants.WaypointRoute.ARES_SPECIAL));
         }
 
-        levels.Add(2, level1);
+        levels.Add(2, level2);
     }
 
     public override MapLevelsScenario getScenario()
     {
-        throw new System.NotImplementedException();
+        return new MapLevelsScenario(levels);
     }
 }

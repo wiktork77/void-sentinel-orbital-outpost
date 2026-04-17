@@ -4,6 +4,7 @@ public class CryoColossusEnemyScript : EnemyScript
 {
     protected override void setEnemySpecificValues()
     {
+        enemyType = EnemyType.CRYO_COLLOSSUS;
         // TODO
     }
 

@@ -86,12 +86,10 @@ public class AresMobSpawnerScript : MonoBehaviour
         {
             case DifficultyLevel.EASY:
                 scenario = new AresEasyScenario().getScenario();
-                Debug.Log("Loaded easy scenario for Ares map");
                 break;
 
             default:
                 scenario = new AresMediumScenario().getScenario();
-                Debug.Log("Loaded medium scenario for Ares map");
                 break;
         }
     }
@@ -114,10 +112,6 @@ public class AresMobSpawnerScript : MonoBehaviour
 
         mapLogicScript.addEnemy();
 
-        Debug.Log("Current Level Number: " + currentLevelNumber);
-        Debug.Log("Currenct level Event number: " + currentLevelEventIndex);
-        Debug.Log("Current enemy: " + currentLevelEvent.EnemyType);
-
         moveToNextLevelEvent();
     }
 
@@ -136,7 +130,7 @@ public class AresMobSpawnerScript : MonoBehaviour
         if (currentLevelEventIndex < events.Count)
         {
             currentLevelEvent = events[currentLevelEventIndex];
-            timeToNextEvent = currentLevelEvent.Duration;
+            timeToNextEvent = currentLevelEvent.DelayBeforeStart;
             nextEventTimer = 0f;
         }
         else

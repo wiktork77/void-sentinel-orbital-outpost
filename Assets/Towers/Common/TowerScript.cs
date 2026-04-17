@@ -71,11 +71,7 @@ public abstract class TowerScript : MonoBehaviour
 private void RotateTowardsTarget(EnemyScript target)
 
 {
-    Debug.Log("Obracamy w stronę: " + target.name);
-    // Debug.Log("Pozycja wieży: " + partToRotate.position);
-    Debug.Log("Pozycja celu: " + partToRotate);
     if (partToRotate == null) return;
-    Debug.Log("Pozycja celu: " + target.transform.position);
 
     Vector2 direction = target.transform.position - partToRotate.position;
     
@@ -84,7 +80,7 @@ private void RotateTowardsTarget(EnemyScript target)
     partToRotate.up = direction; 
     
     // Debug, żebyś widział linię celowania w oknie Scene
-    Debug.DrawLine(partToRotate.position, target.transform.position, Color.yellow);
+    // Debug.DrawLine(partToRotate.position, target.transform.position, Color.yellow);
 }
 
     // Wyświetla zasięg wieży w oknie Scene (czerwony okrąg)
@@ -104,7 +100,7 @@ private void RotateTowardsTarget(EnemyScript target)
         if (!targetsInRange.Contains(enemy)) // Unikamy dublowania na liście
         {
             targetsInRange.Add(enemy);
-            Debug.Log("<color=green>Wykryto wroga:</color> " + enemy.name);
+            // Debug.Log("<color=green>Wykryto wroga:</color> " + enemy.name);
         }
     }
 }
@@ -115,7 +111,7 @@ private void RotateTowardsTarget(EnemyScript target)
     if (enemy != null)
     {
         targetsInRange.Remove(enemy);
-        Debug.Log("<color=red>Wróg wyszedł z zasięgu:</color> " + enemy.name);
+        // Debug.Log("<color=red>Wróg wyszedł z zasięgu:</color> " + enemy.name);
     }
 }
 

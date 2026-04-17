@@ -63,7 +63,7 @@ public class ShopSlot : MonoBehaviour
     // 3. Sprawdź czy nas stać
     if (AresMapLogicScript.Instance.currentCurrency >= towerData.cost)
     {
-        Debug.Log("Wybrano: " + towerData.towerName);
+        //Debug.Log("Wybrano: " + towerData.towerName);
 
         // 4. Sprawdź czy PlacementManager istnieje na scenie
         if (PlacementManager.Instance == null)
@@ -76,7 +76,7 @@ public class ShopSlot : MonoBehaviour
     }
     else
     {
-        Debug.Log("Za mało kasy!");
+        //Debug.Log("Za mało kasy!");
     }
 }
 }

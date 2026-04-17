@@ -4,6 +4,8 @@ public class RustWalkerEnemyScript : EnemyScript
 {
     protected override void setEnemySpecificValues()
     {
+        enemyType = EnemyType.RUST_WALKER;
+
         health = 100;
         damageToBase = 3;
         speed = 3f;

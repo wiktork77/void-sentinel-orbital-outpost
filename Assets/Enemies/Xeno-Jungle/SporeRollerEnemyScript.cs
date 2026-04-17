@@ -4,6 +4,7 @@ public class SporeRollerEnemyScript : EnemyScript
 {
     protected override void setEnemySpecificValues()
     {
+        enemyType = EnemyType.SPORE_ROLLER;
         // TODO
     }
 

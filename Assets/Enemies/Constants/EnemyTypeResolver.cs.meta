@@ -1,2 +1,22 @@
 fileFormatVersion: 2
 guid: 231cb0cfbdb6f944886f7f0a2e5424b7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - scarabDronePrefab: {fileID: 7464608448650086265, guid: 63a87101528cbc3498f6b119f82e260b, type: 3}
+  - rustWalkerPrefab: {instanceID: 0}
+  - heavyBehemothPrefab: {instanceID: 0}
+  - scrapTitanPrefab: {instanceID: 0}
+  - frostDrifterPrefab: {instanceID: 0}
+  - iceCrawlerPrefab: {instanceID: 0}
+  - cryoColossusPrefab: {instanceID: 0}
+  - sentinelCorePrefab: {instanceID: 0}
+  - sporeRollerPrefab: {instanceID: 0}
+  - viperRootPrefab: {instanceID: 0}
+  - regenBulbPrefab: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

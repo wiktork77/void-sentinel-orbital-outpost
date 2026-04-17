@@ -4,6 +4,8 @@ public class HeavyBehemothEnemyScript : EnemyScript
 {
     protected override void setEnemySpecificValues()
     {
+        enemyType = EnemyType.HEAVY_BEHEMOTH;
+
         health = 300;
         speed = 1f;
         damageToBase = 7;

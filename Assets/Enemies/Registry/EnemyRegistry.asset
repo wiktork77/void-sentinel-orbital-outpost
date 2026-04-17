@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74e9acc9f2104d448ac8ebf8c1a2b31c, type: 3}
+  m_Name: EnemyRegistry
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyRegistrySO
+  enemies:
+  - Type: 0
+    prefab: {fileID: 7464608448650086265, guid: 63a87101528cbc3498f6b119f82e260b, type: 3}
+  - Type: 1
+    prefab: {fileID: 8375028066944256370, guid: 24d0a6cedf50fb64e81de300301b99ca, type: 3}
+  - Type: 2
+    prefab: {fileID: 1789626701735993215, guid: 5d6ffdb3eef331a43b8dd3ca20913723, type: 3}
+  - Type: 3
+    prefab: {fileID: 490802387791648043, guid: a886a21eb1518f146ad6a6ff8335f469, type: 3}
+  - Type: 4
+    prefab: {fileID: 564660651871660406, guid: 34d5d6dc9332f1d43928082e4872dc03, type: 3}
+  - Type: 5
+    prefab: {fileID: 7593141306827406856, guid: 9d8e6c14f08f1a9418bbb14a563a400a, type: 3}
+  - Type: 6
+    prefab: {fileID: 5060483667075196930, guid: 5c50cc1d19e8d8b42878a42ae205e1aa, type: 3}
+  - Type: 7
+    prefab: {fileID: 8953170959342790778, guid: 9a35a87a5a1f1a648b4bc4f6e6352605, type: 3}
+  - Type: 8
+    prefab: {fileID: 7482322589216929537, guid: 41b8c6652ca61dc479a8d068aecb8306, type: 3}
+  - Type: 9
+    prefab: {fileID: 8536741952941868563, guid: bf549452717feba4eba3aaa49955f4ad, type: 3}
+  - Type: 10
+    prefab: {fileID: 4257422641565858584, guid: 575c099b122a3af45aa136f195d5fabb, type: 3}

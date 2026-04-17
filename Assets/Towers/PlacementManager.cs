@@ -81,15 +81,15 @@ void Update()
         GameObject realTower = Instantiate(currentTower.towerPrefab, position, Quaternion.identity);
         
         // --- MEGA DEBUG ---
-        Debug.Log($"<color=cyan>WIEŻA POSTAWIONA!</color>");
-        Debug.Log($"Pozycja: {realTower.transform.position}");
-        Debug.Log($"Skala: {realTower.transform.localScale}");
+        //Debug.Log($"<color=cyan>WIEŻA POSTAWIONA!</color>");
+        //Debug.Log($"Pozycja: {realTower.transform.position}");
+        //Debug.Log($"Skala: {realTower.transform.localScale}");
         
         // Sprawdzamy warstwy dzieci
-        foreach (SpriteRenderer sr in realTower.GetComponentsInChildren<SpriteRenderer>())
-        {
-            Debug.Log($"Część: {sr.name}, Order in Layer: {sr.sortingOrder}, Layer Name: {sr.sortingLayerName}");
-        }
+        //foreach (SpriteRenderer sr in realTower.GetComponentsInChildren<SpriteRenderer>())
+        //{
+        //    Debug.Log($"Część: {sr.name}, Order in Layer: {sr.sortingOrder}, Layer Name: {sr.sortingLayerName}");
+        //}
         // ------------------
 
         if (realTower.GetComponent<TowerScript>() != null)

@@ -4,6 +4,7 @@ public class IceCrawlerEnemyScript : EnemyScript
 {
     protected override void setEnemySpecificValues()
     {
+        enemyType = EnemyType.ICE_CRAWLER;
         // TODO
     }
 

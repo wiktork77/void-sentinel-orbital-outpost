@@ -3,6 +3,8 @@ using System;
 
 public abstract class EnemyScript : MonoBehaviour
 {
+    protected EnemyType enemyType;
+
     protected float speed = 2f;
     protected int maxHealth = 67;
     protected int health = 67;
@@ -21,6 +23,8 @@ public abstract class EnemyScript : MonoBehaviour
 
     private Action<int> _onReachEndCallback;
     private Action<int> _onDefeatedCallback;
+
+    public Action<EnemyType> OnEnemyGoneCallback;
 
     protected virtual void Start()
     {
@@ -66,14 +70,12 @@ public abstract class EnemyScript : MonoBehaviour
     {
         _currentWaypointIndex++;
 
-        // Sprawdzamy, czy to koniec �cie�ki
         if (_currentWaypointIndex < path.Length)
         {
             _targetWaypoint = path[_currentWaypointIndex];
         }
         else
         {
-            // Przeciwnik dotar� do ko�ca (np. bazy gracza)
             ReachEnd();
         }
     }
@@ -91,16 +93,15 @@ public abstract class EnemyScript : MonoBehaviour
     protected virtual void ReachEnd()
     {
         _onReachEndCallback?.Invoke(damageToBase);
+
+
+        OnEnemyGone();
         Destroy(gameObject);
     }
 
     public virtual void TakeDamage(float amount) 
     {
-        // Rzutujemy float na int, żeby pasowało do Twoich zmiennych
-        Debug.Log($"Enemy {health} took {amount} damage!");
         health -= Mathf.RoundToInt(amount);
-
-        Debug.Log($"{amount} dostał hita! HP: {health}");
 
         if (health <= 0)
         {
@@ -113,8 +114,14 @@ public abstract class EnemyScript : MonoBehaviour
     {
         _onDefeatedCallback?.Invoke(currencyLoot);
         
+        OnEnemyGone();
         Destroy(gameObject);
     }
 
     protected abstract void setEnemySpecificValues();
+
+    protected virtual void OnEnemyGone()
+    {
+        OnEnemyGoneCallback?.Invoke(enemyType);
+    }
 }
