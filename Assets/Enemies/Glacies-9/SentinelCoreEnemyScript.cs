@@ -4,6 +4,8 @@ public class SentinelCoreEnemyScript : EnemyScript
 {
     protected override void setEnemySpecificValues()
     {
+        health = 10000;
+        damageToBase = int.MaxValue;
         // TODO
     }
 

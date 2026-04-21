@@ -4,6 +4,7 @@ public class FrostDrifterEnemyScript : EnemyScript
 {
     protected override void setEnemySpecificValues()
     {
+        speed = 4f;
         // TODO
     }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 public class AresEasyScenario : PredefinedScenario
@@ -69,9 +70,35 @@ public class AresEasyScenario : PredefinedScenario
         //levels[10].AddEnemies(EnemyType.HEAVY_BEHEMOTH, 5, 2.0f, defaultWaypoint);
 
 
-        levels[1].AddEnemies(EnemyType.SCARAB_DRONE, 25, 0.1f, defaultWaypoint);
 
-        levels[1].AddEnemies(EnemyType.SCARAB_DRONE, 5, 0.5f, defaultWaypoint);
+        var enemies = Enum.GetValues(typeof(EnemyType));
+
+        List<EnemyType> bossess = new List<EnemyType>();
+        bossess.Add(EnemyType.SCRAP_TITAN);
+        bossess.Add(EnemyType.SENTINEL_CORE_BOSS);
+
+        HashSet<EnemyType> postponed = new();
+
+        foreach (EnemyType enemy in enemies)
+        {
+
+
+            if (bossess.Contains(enemy))
+            {
+                postponed.Add(enemy);
+            }
+            else if(enemy != EnemyType.HIVE_MATRIARCH)
+            {
+                levels[1].AddEnemies(enemy, 2, 2.0f, defaultWaypoint);
+            }
+                
+        }
+
+        foreach (EnemyType enemy in bossess)
+        {
+            levels[1].AddEnemies(enemy, 1, 5f, defaultWaypoint);
+        }
+        
         levels[2].AddEnemies(EnemyType.SCARAB_DRONE, 5, 0.5f, defaultWaypoint);
 
         levels[3].AddEnemies(EnemyType.RUST_WALKER, 2, 0.5f, defaultWaypoint);

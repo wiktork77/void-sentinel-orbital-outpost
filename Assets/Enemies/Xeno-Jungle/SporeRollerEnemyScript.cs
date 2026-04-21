@@ -4,6 +4,9 @@ public class SporeRollerEnemyScript : EnemyScript
 {
     protected override void setEnemySpecificValues()
     {
+        damageToBase = 5;
+        health = 50;
+        speed = 2f;
         // TODO
     }
 
@@ -17,5 +20,6 @@ public class SporeRollerEnemyScript : EnemyScript
     protected override void Update()
     {
         base.Update();
+        speed += Time.deltaTime;
     }
 }

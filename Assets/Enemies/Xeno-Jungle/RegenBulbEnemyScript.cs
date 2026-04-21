@@ -4,6 +4,7 @@ public class RegenBulbEnemyScript : EnemyScript
 {
     protected override void setEnemySpecificValues()
     {
+        speed = 1f;
         // TODO 
     }
 

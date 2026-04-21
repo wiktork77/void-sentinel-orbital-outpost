@@ -4,6 +4,7 @@ public class CryoColossusEnemyScript : EnemyScript
 {
     protected override void setEnemySpecificValues()
     {
+        speed = 1.5f;
         // TODO
     }
 
