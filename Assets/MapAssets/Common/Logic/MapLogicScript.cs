@@ -1,9 +1,12 @@
 using UnityEngine;
 using System;
+using NUnit.Framework;
+using System.Collections.Generic;
 
 public class MapLogicScript : MonoBehaviour
 {
     [SerializeField] private EnemyRegistrySO enemyRegistry;
+    [SerializeField] private List<PredefinedScenario> scenarios;
 
     public Action<int> OnHealthChanged;
     public Action<int> OnCurrencyChanged;
@@ -19,7 +22,7 @@ public class MapLogicScript : MonoBehaviour
 
     protected virtual void Start()
     {
-        
+
     }
     protected virtual void Update()
     {

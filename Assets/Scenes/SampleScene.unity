@@ -2110,6 +2110,9 @@ MonoBehaviour:
   gameOverScreen: {fileID: 760921397}
   gameWonScreen: {fileID: 1358788523}
   registry: {fileID: 11400000, guid: 027eaae072ae0b2408c9245baffa17d9, type: 2}
+  ps:
+  - {fileID: 11400000, guid: 656de6fca3849824c93a5a9ec319a18b, type: 2}
+  - {fileID: 11400000, guid: 00da3828577f9fa4a851cd8c83c6781a, type: 2}
 --- !u!1 &715371745
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,75 +2150,6 @@ RectTransform:
   m_AnchoredPosition: {x: 42, y: 5.800049}
   m_SizeDelta: {x: 68, y: 38.5}
   m_Pivot: {x: 0, y: 0.5}
---- !u!1 &756736625
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 756736627}
-  - component: {fileID: 756736626}
-  - component: {fileID: 756736628}
-  m_Layer: 0
-  m_Name: AresMobSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &756736626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756736625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc700460be354284f9fc1c4400e8a260, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  difficultyLevel: 0
---- !u!4 &756736627
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756736625}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.06, y: -0.61, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &756736628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756736625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 231cb0cfbdb6f944886f7f0a2e5424b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyTypeResolver
-  scarabDronePrefab: {fileID: 7464608448650086265, guid: 63a87101528cbc3498f6b119f82e260b, type: 3}
-  rustWalkerPrefab: {fileID: 8375028066944256370, guid: 24d0a6cedf50fb64e81de300301b99ca, type: 3}
-  heavyBehemothPrefab: {fileID: 1789626701735993215, guid: 5d6ffdb3eef331a43b8dd3ca20913723, type: 3}
-  scrapTitanPrefab: {fileID: 490802387791648043, guid: a886a21eb1518f146ad6a6ff8335f469, type: 3}
-  frostDrifterPrefab: {fileID: 564660651871660406, guid: 34d5d6dc9332f1d43928082e4872dc03, type: 3}
-  iceCrawlerPrefab: {fileID: 7593141306827406856, guid: 9d8e6c14f08f1a9418bbb14a563a400a, type: 3}
-  cryoColossusPrefab: {fileID: 5060483667075196930, guid: 5c50cc1d19e8d8b42878a42ae205e1aa, type: 3}
-  sentinelCorePrefab: {fileID: 8953170959342790778, guid: 9a35a87a5a1f1a648b4bc4f6e6352605, type: 3}
-  sporeRollerPrefab: {fileID: 7482322589216929537, guid: 41b8c6652ca61dc479a8d068aecb8306, type: 3}
-  viperRootPrefab: {fileID: 8536741952941868563, guid: bf549452717feba4eba3aaa49955f4ad, type: 3}
-  regenBulbPrefab: {fileID: 4257422641565858584, guid: 575c099b122a3af45aa136f195d5fabb, type: 3}
 --- !u!1 &757623606
 GameObject:
   m_ObjectHideFlags: 0
@@ -19299,6 +19233,5 @@ SceneRoots:
   - {fileID: 1082209220}
   - {fileID: 179392089}
   - {fileID: 697453923}
-  - {fileID: 756736627}
   - {fileID: 1779367363}
   - {fileID: 1851690332}

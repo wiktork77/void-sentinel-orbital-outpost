@@ -1,15 +1,16 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelRunner {
-    private string id = "temp";
+    private string id = "0";
 
-    private EnemyRegistrySO registry;
+    public Action<string> _OnFinishedAllEvents;
+
     private SpawnService spawnService;
     private PathService pathService;
 
-    private Level level;
     private List<LevelEvent> events;
 
     private LevelEvent nextEvent;
@@ -32,8 +33,6 @@ public class LevelRunner {
  
     public LevelRunner(Level level, EnemyRegistrySO registry, string id)
     {
-        this.level = level;
-        this.registry = registry;
         this.id = id;
         
         events = level.getLevelEvents();
@@ -81,7 +80,7 @@ public class LevelRunner {
     {
         if (loadedAllEvents && startedAllEvents)
         {
-            Debug.LogError("Cannot start level with id= " + id + " because it finished already");
+            // Debug.LogError("Cannot start level with id= " + id + " because it finished already");
             return;
         }
 
@@ -105,7 +104,7 @@ public class LevelRunner {
     {
         if (startedAllEvents)
         {
-            Debug.Log("All Events have been already started! Cannot start more for Level runner with id= " + id);
+            // Debug.Log("All Events have been already started! Cannot start more for Level runner with id= " + id);
             return;
         }
 
@@ -145,7 +144,7 @@ public class LevelRunner {
     private void LoadNextEvent()
     {
         if (loadedAllEvents) {
-            Debug.Log("All Events have been already loaded! Cannot load more for Level runner with id= " + id);
+            // Debug.Log("All Events have been already loaded! Cannot load more for Level runner with id= " + id);
             return; 
         }
 
@@ -208,7 +207,8 @@ public class LevelRunner {
 
     private void OnFinishedAllEvents()
     {
-        Debug.Log($"{id} Finished all events");
+        // Debug.Log($"{id} Finished all events");
+        _OnFinishedAllEvents?.Invoke(id);
     }
 
     private void OnSpawnEventFinish(EnemyType enemyType)

@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Level
 {
     private List<LevelEvent> events = new();
@@ -24,4 +25,5 @@ public class Level
             addEvent(new LevelEvent(type, interval, route));
         }
     }
+    
 }

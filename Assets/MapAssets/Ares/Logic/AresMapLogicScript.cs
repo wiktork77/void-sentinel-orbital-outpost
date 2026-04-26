@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -30,14 +31,16 @@ public class AresMapLogicScript : MonoBehaviour
 
     [SerializeField] private EnemyRegistrySO registry;
 
+    [SerializeField] List<PredefinedScenario> ps;
+
+    WaveManager wm;
+
     private int timeToNextWave;
 
 
     private bool isGameFinished;
 
     public bool IsGameFinished => isGameFinished;
-
-    private List<LevelRunner> levelRunners = new();
 
 
     void Awake()
@@ -48,20 +51,9 @@ public class AresMapLogicScript : MonoBehaviour
 
     void Start()
     {
-        scenario = new AresMediumScenario().getScenario();
-        Level testLevel = scenario.getLevel(1);
-        Level otherLevel = scenario.getLevel(2);
+        wm = new WaveManager(ps, registry);
+        wm.Start(1);
 
-        LevelRunner levelRunner1 = new LevelRunner(testLevel, registry, "DEFAULT");
-        LevelRunner levelRunner2 = new LevelRunner(otherLevel, registry, "SPECIAL");
-
-        levelRunners.Add(levelRunner1);
-        levelRunners.Add(levelRunner2);
-
-        foreach (LevelRunner levelRunner in levelRunners)
-        {
-            levelRunner.StartLevel();
-        }
 
         healthText.text = health.ToString();
         currencyText.text = currency.ToString();
@@ -71,11 +63,7 @@ public class AresMapLogicScript : MonoBehaviour
     }
     void Update()
     {
-        foreach (LevelRunner levelRunner in levelRunners)
-        {
-            levelRunner.Tick(Time.deltaTime);
-        }
-        
+        wm.Tick(Time.deltaTime);
 
         if (health <= 0 && !isGameFinished)
         {

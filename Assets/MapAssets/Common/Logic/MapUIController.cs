@@ -10,7 +10,18 @@ public class MapUIController : MonoBehaviour
     private GameObject timeToNextLevelTimer;
     private TMP_Text timeToNextLevelText;
 
-    public MapLogicScript mapLogic;
+    private MapLogicScript mapLogic;
+
+    void Awake()
+    {
+        // Map Logic Script Has to be in the same game object - usually a GameManager Object
+        mapLogic = GetComponent<MapLogicScript>();
+
+        if (mapLogic == null)
+        {
+            Debug.LogError("MapUIController nie znalaz³ MapLogicScript na tym samym obiekcie!");
+        }
+    }
 
     void Start()
     {
