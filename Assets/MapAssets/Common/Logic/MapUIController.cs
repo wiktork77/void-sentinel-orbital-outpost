@@ -3,11 +3,19 @@ using UnityEngine;
 
 public class MapUIController : MonoBehaviour
 {
+    [SerializeField]
     private TMP_Text healthText;
+
+    [SerializeField]
     private TMP_Text currencyText;
+    
+    [SerializeField]
     private TMP_Text levelProgressText;
 
+    [SerializeField]
     private GameObject timeToNextLevelTimer;
+    
+    [SerializeField]
     private TMP_Text timeToNextLevelText;
 
     private MapLogicScript mapLogic;

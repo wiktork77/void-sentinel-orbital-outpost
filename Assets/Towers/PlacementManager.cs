@@ -9,9 +9,25 @@ public class PlacementManager : MonoBehaviour
     private GameObject ghost;
     public GameObject shopPanel;
 
+    public GameObject gameManager;
+
+    private MapLogicScript mapLogicScript;
+
     void Awake() => Instance = this;
 
-void Update()
+    private void Start()
+    {
+        if (gameManager != null)
+        {
+            mapLogicScript = gameManager.GetComponent<MapLogicScript>();
+        }
+        else
+        {
+            mapLogicScript = Object.FindAnyObjectByType<MapLogicScript>();
+        }
+    }
+
+    void Update()
 {
     if (Keyboard.current.vKey.wasPressedThisFrame)
     {
@@ -76,7 +92,7 @@ void Update()
 
    void PlaceTower(Vector3 position)
 {
-    if (AresMapLogicScript.Instance.currentCurrency >= currentTower.cost)
+    if (mapLogicScript.hasEnoughCurrency(currentTower.cost))
     {
         GameObject realTower = Instantiate(currentTower.towerPrefab, position, Quaternion.identity);
         
@@ -95,7 +111,7 @@ void Update()
         if (realTower.GetComponent<TowerScript>() != null)
             realTower.GetComponent<TowerScript>().enabled = true;
 
-        AresMapLogicScript.Instance.reduceCurrency(currentTower.cost);
+        mapLogicScript.loseCurrency(currentTower.cost);
 
         Destroy(ghost);
         currentTower = null;

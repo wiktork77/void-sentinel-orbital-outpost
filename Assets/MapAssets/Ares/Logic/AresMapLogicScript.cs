@@ -51,8 +51,8 @@ public class AresMapLogicScript : MonoBehaviour
 
     void Start()
     {
-        wm = new WaveManager(ps, registry);
-        wm.Start(1);
+        //wm = new WaveManager(ps, registry);
+        //wm.Start(1);
 
 
         healthText.text = health.ToString();
@@ -63,7 +63,7 @@ public class AresMapLogicScript : MonoBehaviour
     }
     void Update()
     {
-        wm.Tick(Time.deltaTime);
+        //wm.Tick(Time.deltaTime);
 
         if (health <= 0 && !isGameFinished)
         {

@@ -8,6 +8,8 @@ public class MapLogicScript : MonoBehaviour
     [SerializeField] private EnemyRegistrySO enemyRegistry;
     [SerializeField] private List<PredefinedScenario> scenarios;
 
+    WaveManager waveManager;
+
     public Action<int> OnHealthChanged;
     public Action<int> OnCurrencyChanged;
     public Action<int, int> onLevelIncrease;
@@ -17,16 +19,17 @@ public class MapLogicScript : MonoBehaviour
 
 
     private int health;
-    private int currency;
+    private int currency = 500;
 
 
     protected virtual void Start()
     {
-
+        waveManager = new WaveManager(scenarios, enemyRegistry);
+        waveManager.Start(1);
     }
     protected virtual void Update()
     {
-        
+        waveManager.Tick(Time.deltaTime);
     }
 
     public virtual void loseHealth(int amount)
@@ -50,6 +53,11 @@ public class MapLogicScript : MonoBehaviour
     { 
         currency += amount;
         OnCurrencyChanged?.Invoke(currency);
+    }
+
+    public bool hasEnoughCurrency(int requiredAmount)
+    {
+        return currency >= requiredAmount;
     }
 
 

@@ -13,9 +13,22 @@ public class ShopSlot : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI costText;
     public Button buyButton;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public GameObject gameManager;
+
+    private MapLogicScript mapLogicScript;
+
    void Start()
-    {
+    { 
+        if (gameManager != null)
+        {
+            mapLogicScript = gameManager.GetComponent<MapLogicScript>();
+        }
+        else
+        {
+            mapLogicScript = Object.FindAnyObjectByType<MapLogicScript>();
+        }
+
         UpdateUI();
     }
 
@@ -23,10 +36,10 @@ public class ShopSlot : MonoBehaviour
     void Update()
     {
         // Sprawdzamy co klatkę, czy gracza stać na tę wieżę
-        if (towerData != null && AresMapLogicScript.Instance != null)
+        if (towerData != null && mapLogicScript != null)
         {
-            bool canAfford = AresMapLogicScript.Instance.currentCurrency >= towerData.cost;
-            
+            bool canAfford = mapLogicScript.hasEnoughCurrency(towerData.cost);
+
             // Ustawiamy czy przycisk jest klikalny
             buyButton.interactable = canAfford;
 
@@ -54,14 +67,14 @@ public class ShopSlot : MonoBehaviour
     }
 
     // 2. Sprawdź czy skrypt AresMapLogicScript istnieje na scenie i ma ustawiony Instance
-    if (AresMapLogicScript.Instance == null)
+    if (mapLogicScript == null)
     {
-        Debug.LogError("BŁĄD: AresMapLogicScript.Instance jest nullem! Czy skrypt jest na scenie i ma metodę Awake?");
+        Debug.LogError("BŁĄD: mapLogicScript jest nullem! Czy skrypt jest na scenie i ma metodę Awake?");
         return;
     }
 
     // 3. Sprawdź czy nas stać
-    if (AresMapLogicScript.Instance.currentCurrency >= towerData.cost)
+    if (mapLogicScript.hasEnoughCurrency(towerData.cost))
     {
         //Debug.Log("Wybrano: " + towerData.towerName);
 

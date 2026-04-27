@@ -951,6 +951,7 @@ MonoBehaviour:
   nameText: {fileID: 2038326782}
   costText: {fileID: 1285898880}
   buyButton: {fileID: 223337578}
+  gameManager: {fileID: 418355814}
 --- !u!1 &240709431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,6 +1286,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 354525130}
   m_CullTransparentMesh: 1
+--- !u!1 &418355814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 418355817}
+  - component: {fileID: 418355816}
+  - component: {fileID: 418355815}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &418355815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418355814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa6704159b266c498e15d79fac33eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapUIController
+  healthText: {fileID: 92507847}
+  currencyText: {fileID: 1036152323}
+  levelProgressText: {fileID: 157885201}
+  timeToNextLevelTimer: {fileID: 12681807}
+  timeToNextLevelText: {fileID: 354525132}
+--- !u!114 &418355816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418355814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959a25b01752d9647aa5672395b56d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapLogicScript
+  enemyRegistry: {fileID: 11400000, guid: 027eaae072ae0b2408c9245baffa17d9, type: 2}
+  scenarios:
+  - {fileID: 11400000, guid: 656de6fca3849824c93a5a9ec319a18b, type: 2}
+  - {fileID: 11400000, guid: 00da3828577f9fa4a851cd8c83c6781a, type: 2}
+--- !u!4 &418355817
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418355814}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.91856, y: -1.84377, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &422607271
 GameObject:
   m_ObjectHideFlags: 0
@@ -2074,7 +2141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &697453923
 Transform:
   m_ObjectHideFlags: 0
@@ -16802,6 +16869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   shopPanel: {fileID: 350205268}
+  gameManager: {fileID: 418355814}
 --- !u!4 &1851690332
 Transform:
   m_ObjectHideFlags: 0
@@ -17028,6 +17096,7 @@ MonoBehaviour:
   nameText: {fileID: 757623608}
   costText: {fileID: 1747829549}
   buyButton: {fileID: 1937063403}
+  gameManager: {fileID: 418355814}
 --- !u!1 &1995889175
 GameObject:
   m_ObjectHideFlags: 0
@@ -19235,3 +19304,4 @@ SceneRoots:
   - {fileID: 697453923}
   - {fileID: 1779367363}
   - {fileID: 1851690332}
+  - {fileID: 418355817}
