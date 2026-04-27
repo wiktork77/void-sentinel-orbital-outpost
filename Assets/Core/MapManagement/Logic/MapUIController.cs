@@ -35,6 +35,7 @@ public class MapUIController : MonoBehaviour
     {
         mapLogic.OnHealthChanged += updateHealthDisplay;
         mapLogic.OnCurrencyChanged += updateCurrencyDisplay;
+        mapLogic.OnLevelIncrease += updateLevelProgressDisplay;
     }
 
     void Update()

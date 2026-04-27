@@ -7,6 +7,7 @@ using UnityEngine;
 public class WaveManager
 {
     private int currentLevelNumber = 0;
+    private int lastLevelNumber;
     private readonly List<MapLevelsScenario> scenarioList;
     private List<ScenarioRunner> scenarioRunners;
 
@@ -17,6 +18,8 @@ public class WaveManager
 
     private bool active = false;
     private bool finished = false;
+
+    public int LastLevelNumber => lastLevelNumber;
 
     public WaveManager(List<PredefinedScenario> scenarios, EnemyRegistrySO registry)
     {
@@ -34,6 +37,8 @@ public class WaveManager
         }
 
         scenarioRunnersActive = scenarioRunners.Count;
+
+        lastLevelNumber = ResolveLastLevelNumber();
     }
 
     public void Start(int startLevel)
@@ -120,6 +125,19 @@ public class WaveManager
         }
     }
 
+    private int ResolveLastLevelNumber()
+    {
+        if (scenarioList == null || scenarioList.Count == 0)
+        {
+            return -1;
+        }
+        else
+        {
+            List<int> lastLevels = scenarioList.Select(scenario => scenario.getLastLevel()).ToList();
+            return lastLevels.Max();
+        }
+    }
+
     private void OnScenarioRunnerFinished(ScenarioRunner scenarioRunner)
     {
         // yet to be tested
@@ -146,9 +164,6 @@ public class WaveManager
     {
         NextLevel();
     }
-
-
-
 
     private void OnWaveManagerFinished()
     {
