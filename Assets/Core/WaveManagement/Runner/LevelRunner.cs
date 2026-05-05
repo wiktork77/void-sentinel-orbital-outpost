@@ -30,7 +30,10 @@ public class LevelRunner {
 
     private bool isDepleted = false;
 
- 
+    public Action<EnemyScript> _OnEnemyDefeated;
+    public Action<EnemyScript> _OnEnemyReachEnd;
+
+
     public LevelRunner(Level level, EnemyRegistrySO registry, string id)
     {
         this.id = id;
@@ -137,6 +140,8 @@ public class LevelRunner {
         spawnedEnemy.setupRoute(enemyPath);
 
         spawnedEnemy.OnEnemyGoneCallback += OnSpawnEventFinish;
+        spawnedEnemy._OnEnemyReachEnd += _OnEnemyReachEnd;
+        spawnedEnemy._OnEnemyDefeated += _OnEnemyDefeated;
 
         // add more behavior... callbacks etc
     }

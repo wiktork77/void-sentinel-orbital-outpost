@@ -21,10 +21,21 @@ public class WaveManager
 
     public int LastLevelNumber => lastLevelNumber;
 
+    public Action<EnemyScript> _OnEnemyDefeated;
+    public Action<EnemyScript> _OnEnemyReachEnd;
+
+    public Action<int> _OnNextLevelAutomatic;
+
+    public Action _OnWaveManagerFinished;
+
     public WaveManager(List<PredefinedScenario> scenarios, EnemyRegistrySO registry)
     {
         scenarioList = scenarios.Select(s => s.getScenario()).ToList();
         enemyRegistry = registry;
+    }
+
+    public void SetupScenarioRunners()
+    {
         scenarioRunners = new List<ScenarioRunner>();
 
         foreach (var scenario in scenarioList)
@@ -32,6 +43,9 @@ public class WaveManager
             ScenarioRunner runner = new ScenarioRunner(scenario, enemyRegistry);
             runner._OnFinished += OnScenarioRunnerFinished;
             runner._OnReadyForNextLevel += OnScenarioRunnerReadyForNextLevel;
+
+            runner._OnEnemyDefeated += _OnEnemyDefeated;
+            runner._OnEnemyReachEnd += _OnEnemyReachEnd;
 
             scenarioRunners.Add(runner);
         }
@@ -80,13 +94,13 @@ public class WaveManager
     private void NextLevel()
     {
         scenarioRunnersNotReadyForNextLevel = scenarioRunners.Count;
-
         currentLevelNumber++;
+
+        _OnNextLevelAutomatic?.Invoke(currentLevelNumber);
 
         Debug.Log("Starting level " + currentLevelNumber);
 
         List<ScenarioRunner> scenarioRunnersCopy = new List<ScenarioRunner>(scenarioRunners);
-
         foreach (var scenarioRunner in scenarioRunnersCopy)
         {
             scenarioRunner.NextLevel();
@@ -170,6 +184,14 @@ public class WaveManager
         finished = true;
         active = false;
         Debug.Log("Wave manager finished!");
+
+        _OnWaveManagerFinished?.Invoke();
+    }
+
+    public void Stop()
+    {
+        active = false;
+
     }
 
 

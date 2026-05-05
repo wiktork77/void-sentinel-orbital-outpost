@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MapUIController : MonoBehaviour
 {
@@ -17,6 +18,12 @@ public class MapUIController : MonoBehaviour
     
     [SerializeField]
     private TMP_Text timeToNextLevelText;
+
+    [SerializeField]
+    private GameObject gameOverScreen;
+
+    [SerializeField]
+    private GameObject gameWonScreen;
 
     private MapLogicScript mapLogic;
 
@@ -36,6 +43,9 @@ public class MapUIController : MonoBehaviour
         mapLogic.OnHealthChanged += updateHealthDisplay;
         mapLogic.OnCurrencyChanged += updateCurrencyDisplay;
         mapLogic.OnLevelIncrease += updateLevelProgressDisplay;
+        mapLogic.OnGameOver += showGameOverScreen;
+        mapLogic.OnGameWon += showGameWonScreen;
+        mapLogic.OnPlayAgain += PlayAgain;
     }
 
     void Update()
@@ -84,5 +94,21 @@ public class MapUIController : MonoBehaviour
     private string getLevelProgressText(int currentLevel, int maxLevel)
     {
         return currentLevel.ToString() + MapUIControllerConstants.LEVEL_PROGRESS_SEPARATOR + maxLevel.ToString();
+    }
+
+    private void showGameOverScreen()
+    {
+        gameOverScreen.SetActive(true);
+    }
+
+    private void showGameWonScreen()
+    {
+        gameWonScreen.SetActive(true);
+    }
+
+    private void PlayAgain()
+    {
+        Scene activeScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(activeScene.buildIndex);
     }
 }

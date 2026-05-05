@@ -20,15 +20,26 @@ public class MapLogicScript : MonoBehaviour
     public Action OnGameOver;
     public Action OnGameWon;
 
+    public Action OnPlayAgain;
+
 
     private int health;
     private int currency;
-    private int currentLevel;
+
+    private bool isGameOver = false;
+    private bool isGameWon = false;
 
 
     protected virtual void Start()
     {
         waveManager = new WaveManager(scenarios, enemyRegistry);
+        waveManager._OnEnemyDefeated += LootDefeatedEnemy;
+        waveManager._OnEnemyReachEnd += TakeDamageFromEnemy;
+        waveManager._OnNextLevelAutomatic += OnNextLevelAutomatic;
+        waveManager._OnWaveManagerFinished += OnWaveManagerFinished;
+
+        waveManager.SetupScenarioRunners();
+
         ApplyInitialValues();
 
         // temp
@@ -39,8 +50,8 @@ public class MapLogicScript : MonoBehaviour
     {
         waveManager.Tick(Time.deltaTime);
     }
-
-    public virtual void loseHealth(int amount)
+    
+    protected virtual void loseHealth(int amount)
     {
         health -= amount;
         if (health < 0)
@@ -57,7 +68,7 @@ public class MapLogicScript : MonoBehaviour
         OnCurrencyChanged?.Invoke(currency);
     }
 
-    public virtual void addCurrency(int amount)
+    protected virtual void addCurrency(int amount)
     { 
         currency += amount;
         OnCurrencyChanged?.Invoke(currency);
@@ -69,22 +80,25 @@ public class MapLogicScript : MonoBehaviour
     }
 
 
-    private void gameOver()
+    public void LootDefeatedEnemy(EnemyScript enemy)
     {
-        OnGameOver?.Invoke();
+        addCurrency(enemy.CurrencyLoot);
     }
 
-    private void gameWon()
+    public void TakeDamageFromEnemy(EnemyScript enemy)
     {
-        OnGameWon?.Invoke();
+        loseHealth(enemy.DamageToBase);
     }
+
+
+
 
     private void ApplyInitialValues()
     {
         MapInitialValues initialValues = InitialValuesResolver.resolve(mapType);
         SetHealth(initialValues.InitialHealth);
         SetCurrency(initialValues.InitialCurrency);
-        SetLastLevel(waveManager.LastLevelNumber);
+        SetLastLevel(1, waveManager.LastLevelNumber);
     }
 
     private void SetHealth(int health)
@@ -99,9 +113,89 @@ public class MapLogicScript : MonoBehaviour
         OnCurrencyChanged?.Invoke(currency);
     }
 
-    private void SetLastLevel(int lastLevel)
+    private void SetLastLevel(int startLevel, int lastLevel)
     {
         //...
-        OnLevelIncrease?.Invoke(1, lastLevel);
+        OnNextLevel(startLevel, lastLevel);
+    }
+
+    private void OnNextLevelAutomatic(int level)
+    {
+        // place for some additional logic
+
+        OnNextLevel(level, waveManager.LastLevelNumber);
+    }
+
+    private void OnNextLevelOnDemand(int level, int enemiesLeft)
+    {
+        // + additional bonus for skipping on demand, based on enemiesLeft - TBD
+        OnNextLevel(level, waveManager.LastLevelNumber);
+    }
+
+
+    private void OnNextLevel(int level, int lastLevel)
+    {
+        OnLevelIncrease?.Invoke(level, lastLevel);
+    }
+
+    protected bool shouldLoseGame()
+    {
+        // default
+        return health < 0;
+    }
+
+
+    private void OnWaveManagerFinished()
+    {
+        if (isGameOver)
+        {
+            Debug.Log("Game already over");
+            return;
+        }
+
+        if (shouldLoseGame() && !isGameOver)
+        {
+            gameOver();
+            return;
+        }
+
+        gameWon();
+    }
+
+    private void gameOver()
+    {
+        if (!isGameOver && !isGameWon)
+        {
+            isGameOver = true;
+            Debug.Log("game over");
+            OnGameOver?.Invoke();
+
+            OnGameFinished();
+        }
+
+    }
+
+    private void gameWon()
+    {
+        if (!isGameWon && !isGameOver)
+        {
+            isGameWon = true;
+            Debug.Log("Game won!");
+            OnGameWon?.Invoke();
+
+            OnGameFinished();
+        }
+    }
+
+    private void OnGameFinished()
+    {
+        waveManager.Stop();
+        // can also do something like freeze mobs, delete, clear etc.
+    }
+
+
+    public void PlayAgain()
+    {
+        OnPlayAgain?.Invoke();
     }
 }

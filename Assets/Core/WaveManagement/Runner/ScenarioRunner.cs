@@ -21,6 +21,9 @@ public class ScenarioRunner
 
     private int activeLevelRunnersCount = 0;
 
+    public Action<EnemyScript> _OnEnemyDefeated;
+    public Action<EnemyScript> _OnEnemyReachEnd;
+
     public ScenarioRunner(MapLevelsScenario scenario, EnemyRegistrySO enemyRegistry)
     {
         this.scenario = scenario;
@@ -95,6 +98,9 @@ public class ScenarioRunner
 
         runner._OnFinishedAllEvents += OnFinishedLevelRunner;
         runner._OnFinishedAllEvents += MarkDepletedLevelRunnerForDeletion;
+
+        runner._OnEnemyReachEnd += _OnEnemyReachEnd;
+        runner._OnEnemyDefeated += _OnEnemyDefeated;
 
         runner.StartLevel();
     }

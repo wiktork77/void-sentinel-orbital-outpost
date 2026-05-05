@@ -22,12 +22,16 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
     private int _currentWaypointIndex = 0;
     private Transform _targetWaypoint;
 
-    private Action<int> _onReachEndCallback;
-    private Action<int> _onDefeatedCallback;
+
+    public Action<EnemyScript> _OnEnemyDefeated;
+    public Action<EnemyScript> _OnEnemyReachEnd;
 
     public Action<EnemyType> OnEnemyGoneCallback;
 
     private List<EffectInstance<EnemyScript>> _activeEffects = new List<EffectInstance<EnemyScript>>();
+
+    public int CurrencyLoot => currencyLoot;
+    public int DamageToBase => damageToBase;
 
     public float Speed
     {
@@ -90,19 +94,9 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
         }
     }
 
-    public void SetOnReachEndCallback(Action<int> callback)
-    {
-        _onReachEndCallback = callback;
-    }
-
-    public void SetOnDefeatedCallback(Action<int> callback)
-    {
-        _onDefeatedCallback = callback;
-    }
-
     protected virtual void ReachEnd()
     {
-        _onReachEndCallback?.Invoke(damageToBase);
+        _OnEnemyReachEnd?.Invoke(this);
 
 
         OnEnemyGone();
@@ -122,7 +116,9 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
 
     protected virtual void Defeat()
     {
-        _onDefeatedCallback?.Invoke(currencyLoot);
+        Debug.Log("Mob defeated");
+        _OnEnemyDefeated?.Invoke(this);
+
         
         OnEnemyGone();
         Destroy(gameObject);

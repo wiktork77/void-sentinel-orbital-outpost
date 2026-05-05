@@ -238,9 +238,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AresMapLogicScript, Assembly-CSharp
-        m_MethodName: RestartGame
+      - m_Target: {fileID: 418355816}
+        m_TargetAssemblyTypeName: MapLogicScript, Assembly-CSharp
+        m_MethodName: PlayAgain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1321,6 +1321,8 @@ MonoBehaviour:
   levelProgressText: {fileID: 157885201}
   timeToNextLevelTimer: {fileID: 12681807}
   timeToNextLevelText: {fileID: 354525132}
+  gameOverScreen: {fileID: 760921397}
+  gameWonScreen: {fileID: 1358788523}
 --- !u!114 &418355816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1333,7 +1335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 959a25b01752d9647aa5672395b56d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapLogicScript
-  mapType: 3
+  mapType: 0
   enemyRegistry: {fileID: 11400000, guid: 027eaae072ae0b2408c9245baffa17d9, type: 2}
   scenarios:
   - {fileID: 11400000, guid: 656de6fca3849824c93a5a9ec319a18b, type: 2}
@@ -2481,9 +2483,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AresMapLogicScript, Assembly-CSharp
-        m_MethodName: RestartGame
+      - m_Target: {fileID: 418355816}
+        m_TargetAssemblyTypeName: MapLogicScript, Assembly-CSharp
+        m_MethodName: PlayAgain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

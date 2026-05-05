@@ -5,7 +5,7 @@ public class Tower1Script  : TowerScript
     {
         cost = 150;
         range = 4f;
-        damage = 1f;
+        damage = 40f;
         reloadTime = 0.8f;
     }
 }
