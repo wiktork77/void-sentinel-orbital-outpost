@@ -1,7 +1,8 @@
-using UnityEngine;
 using System;
+using System.Collections.Generic;
+using UnityEngine;
 
-public abstract class EnemyScript : MonoBehaviour
+public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
 {
     protected EnemyType enemyType;
 
@@ -26,6 +27,14 @@ public abstract class EnemyScript : MonoBehaviour
 
     public Action<EnemyType> OnEnemyGoneCallback;
 
+    private List<EffectInstance<EnemyScript>> _activeEffects = new List<EffectInstance<EnemyScript>>();
+
+    public float Speed
+    {
+        get => speed;
+        set => speed = value;
+    }
+
     protected virtual void Start()
     {
         setEnemySpecificValues();
@@ -39,6 +48,7 @@ public abstract class EnemyScript : MonoBehaviour
         if (_targetWaypoint == null) return;
 
         Move();
+        TickEffects();
         CheckDistance();
     }
 
@@ -123,5 +133,56 @@ public abstract class EnemyScript : MonoBehaviour
     protected virtual void OnEnemyGone()
     {
         OnEnemyGoneCallback?.Invoke(enemyType);
+    }
+
+    public void ApplyEffect(Effect<EnemyScript> effectData)
+    {
+
+        if (!effectData.isStackable)
+        {
+            var existingEffect = _activeEffects.Find(e => e.Data == effectData);
+            if (existingEffect != null)
+            {
+                existingEffect.Refresh();
+                return;
+            }
+        }
+
+        var newInstance = new EffectInstance<EnemyScript>(effectData, this);
+        _activeEffects.Add(newInstance);
+    }
+
+    public void RemoveEffect(Effect<EnemyScript> effect)
+    {
+        Debug.Log("Effect Removed - Enemy");
+    }
+
+    private void TickEffects()
+    {
+        for (int i = _activeEffects.Count - 1; i >= 0; i--)
+        {
+            var effect = _activeEffects[i];
+
+            effect.Update(Time.deltaTime);
+
+            if (effect.IsFinished)
+            {
+                effect.End(); 
+                _activeEffects.RemoveAt(i);
+            }
+        }
+    }
+
+    public virtual void DecreaseSpeed(float decreaseRatio)
+    {
+        if (decreaseRatio >= 0 && decreaseRatio <= 1)
+        {
+            speed -= speed*decreaseRatio;
+        }
+    }
+
+    public virtual void SetSpeed(float speed)
+    {
+        this.speed = speed;
     }
 }

@@ -13,7 +13,7 @@ public class AresEasyScenario1 : PredefinedScenario
             levels[i] = new Level();
         }
 
-        levels[1].AddEnemies(EnemyType.SCARAB_DRONE, 15, 0.5f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        levels[1].AddEnemies(EnemyType.RUST_WALKER, 10, 0.5f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
         levels[2].AddEnemies(EnemyType.RUST_WALKER, 10, 1f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
         levels[5].AddEnemies(EnemyType.RUST_WALKER, 10, 1f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
 

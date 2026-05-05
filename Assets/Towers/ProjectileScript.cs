@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
@@ -6,6 +7,8 @@ public class ProjectileScript : MonoBehaviour
     private float damage;
     public float speed = 15f; 
     public float rotationOffset = -90f;
+
+    public Action OnHit;
 
     public void Setup(EnemyScript _target, float _damage)
     {
@@ -42,6 +45,7 @@ public class ProjectileScript : MonoBehaviour
     {
         // Wywołujemy funkcję TakeDamage z EnemyScript
         target.TakeDamage(damage);
+        OnHit?.Invoke();
         
         // Opcjonalnie: Debug, żebyś widział w konsoli, że pocisk "uderzył"
         // Debug.Log($"Pocisk trafił {target.name} zadając {damage} DMG.");

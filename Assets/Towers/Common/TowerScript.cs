@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
-public abstract class TowerScript : MonoBehaviour
+public abstract class TowerScript : MonoBehaviour, IEffectApplier<EnemyScript>
 {
     [Header("Base Stats")]
     [SerializeField] protected int cost = 100;
@@ -17,6 +18,9 @@ public abstract class TowerScript : MonoBehaviour
 
     protected float nextFireTime = 0f;
     protected List<EnemyScript> targetsInRange = new List<EnemyScript>();
+
+    [Header("Effects Settings")]
+    public List<Effect<EnemyScript>> effectsToApply = new List<Effect<EnemyScript>>();
 
     protected virtual void Start()
     {
@@ -59,10 +63,19 @@ public abstract class TowerScript : MonoBehaviour
         
         // 2. Szukamy na nim skryptu ProjectileScript
         ProjectileScript projectile = projGO.GetComponent<ProjectileScript>();
+
+        Action OnProjectileHit = () =>
+        {
+            foreach (var effect in effectsToApply)
+            {
+                SendEffect(effect, target);
+            }
+        };
         
         // 3. Przekazujemy mu cel (to jest to "pchnięcie", którego Ci brakuje!)
         if (projectile != null)
         {
+            projectile.OnHit += OnProjectileHit;
             projectile.Setup(target, damage);
         }
     }
@@ -116,4 +129,12 @@ private void RotateTowardsTarget(EnemyScript target)
 }
 
     protected abstract void setTowerSpecificValues();
+
+    public void SendEffect(Effect<EnemyScript> effect, EnemyScript receiver)
+    {
+        if (effect != null && receiver != null)
+        {
+            receiver.ApplyEffect(effect);
+        }
+    }
 }
