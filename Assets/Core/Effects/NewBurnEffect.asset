@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 110721242615f964498d54d9c20ce236, type: 3}
-  m_Name: NewSlowEffect
-  m_EditorClassIdentifier: Assembly-CSharp::SlowEffect
-  effectName: Slow
-  duration: 1.5
-  tickInterval: 0
+  m_Script: {fileID: 11500000, guid: ca0c9f70a27fc4baeaff62e0f54919f4, type: 3}
+  m_Name: NewBurnEffect
+  m_EditorClassIdentifier: Assembly-CSharp::BurnEffect
+  effectName: Burn
+  duration: 5
+  tickInterval: 1
   isPermanent: 0
   isStackable: 0
-  isPeriodic: 0
-  decreaseRatio: 0.5
+  isPeriodic: 1
+  damagePerTick: 1
