@@ -8,6 +8,7 @@ public class ScarabDroneEnemyScript : EnemyScript
 
         health = 30;
         speed = 4f;
+        currencyLoot = 3;
     }
 
     protected override void Start()

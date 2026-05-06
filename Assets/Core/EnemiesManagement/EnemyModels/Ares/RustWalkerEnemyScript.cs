@@ -6,9 +6,11 @@ public class RustWalkerEnemyScript : EnemyScript
     {
         enemyType = EnemyType.RUST_WALKER;
 
-        health = 100;
+        health = 120;
         damageToBase = 3;
         speed = 3f;
+
+        currencyLoot = 7;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
