@@ -5,6 +5,7 @@ public class FrostDrifterEnemyScript : EnemyScript
     protected override void setEnemySpecificValues()
     {
         enemyType = EnemyType.FROST_DRIFTER;
+        health = 100;
         // TODO
     }
 

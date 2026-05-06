@@ -5,6 +5,7 @@ public class SentinelCoreEnemyScript : EnemyScript
     protected override void setEnemySpecificValues()
     {
         enemyType = EnemyType.SENTINEL_CORE_BOSS;
+        health = 200;
         // TODO
     }
 

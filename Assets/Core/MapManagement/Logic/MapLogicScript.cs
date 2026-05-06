@@ -21,7 +21,10 @@ public class MapLogicScript : MonoBehaviour
     public Action OnGameWon;
 
     public Action OnPlayAgain;
+    public Action OnQuit;
 
+    public Action OnStartWaves;
+    public Action OnPauseWaves;
 
     private int health;
     private int currency;
@@ -44,11 +47,17 @@ public class MapLogicScript : MonoBehaviour
 
         // temp
         
-        waveManager.Start(1);
+        // waveManager.Start(1);
     }
     protected virtual void Update()
     {
         waveManager.Tick(Time.deltaTime);
+    }
+
+    public virtual void StartWaves()
+    {
+        OnStartWaves?.Invoke();
+        waveManager.Start(1);
     }
     
     protected virtual void loseHealth(int amount)
@@ -197,5 +206,10 @@ public class MapLogicScript : MonoBehaviour
     public void PlayAgain()
     {
         OnPlayAgain?.Invoke();
+    }
+
+    public void Quit()
+    {
+        OnQuit?.Invoke();
     }
 }

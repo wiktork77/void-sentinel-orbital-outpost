@@ -5,6 +5,7 @@ public class IceCrawlerEnemyScript : EnemyScript
     protected override void setEnemySpecificValues()
     {
         enemyType = EnemyType.ICE_CRAWLER;
+        health = 100;
         // TODO
     }
 

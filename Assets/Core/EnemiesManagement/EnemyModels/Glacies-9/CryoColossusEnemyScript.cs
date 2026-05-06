@@ -5,6 +5,7 @@ public class CryoColossusEnemyScript : EnemyScript
     protected override void setEnemySpecificValues()
     {
         enemyType = EnemyType.CRYO_COLLOSSUS;
+        health = 100;
         // TODO
     }
 

@@ -25,6 +25,9 @@ public class MapUIController : MonoBehaviour
     [SerializeField]
     private GameObject gameWonScreen;
 
+    [SerializeField]
+    private GameObject StartStopWavePanel;
+
     private MapLogicScript mapLogic;
 
     void Awake()
@@ -46,6 +49,8 @@ public class MapUIController : MonoBehaviour
         mapLogic.OnGameOver += showGameOverScreen;
         mapLogic.OnGameWon += showGameWonScreen;
         mapLogic.OnPlayAgain += PlayAgain;
+        mapLogic.OnQuit += QuitToMainMenu;
+        mapLogic.OnStartWaves += ManageStartStopWavePanelOnStart;
     }
 
     void Update()
@@ -108,7 +113,21 @@ public class MapUIController : MonoBehaviour
 
     private void PlayAgain()
     {
-        Scene activeScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(activeScene.buildIndex);
+        ScenesTransitionManager.ReloadActiveScene();
+    }
+
+    private void QuitToMainMenu()
+    {
+        ScenesTransitionManager.TransitionToMainMenu();
+    }
+
+    private void ManageStartStopWavePanelOnStart()
+    {
+        StartStopWavePanel.SetActive(false);
+    }
+
+    private void ManageStartStopWavePanelOnPause()
+    {
+
     }
 }
