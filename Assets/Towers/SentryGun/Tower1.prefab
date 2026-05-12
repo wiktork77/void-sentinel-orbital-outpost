@@ -183,9 +183,7 @@ MonoBehaviour:
   firePoint: {fileID: 4325674762338348922}
   partToRotate: {fileID: 6642877551993926842}
   rotationOffset: -90
-  effectsToApply:
-  - {fileID: 11400000, guid: af794f52fba48594095818ee2a21e3f3, type: 2}
-  - {fileID: 11400000, guid: 36087c196870cac4fa51330a453cf031, type: 2}
+  effectsToApply: []
 --- !u!1 &7508174719773015956
 GameObject:
   m_ObjectHideFlags: 0
