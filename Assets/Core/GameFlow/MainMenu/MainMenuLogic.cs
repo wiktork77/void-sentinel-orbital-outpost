@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MainMenuLogic : MonoBehaviour
@@ -5,8 +6,25 @@ public class MainMenuLogic : MonoBehaviour
     [Header("Panels")]
     public GameObject mainPanel;
     public GameObject rulesPanel;
-    public GameObject archivePanel;
+    public GameObject knowledgeBaseChoicePanel;
 
+    public GameObject arsenalPanel;
+    public GameObject enemiesPanel;
+
+    public List<GameObject> allPanels;
+
+    private void Start()
+    {
+
+        allPanels = new List<GameObject>
+        {
+            mainPanel,
+            rulesPanel,
+            knowledgeBaseChoicePanel,
+            arsenalPanel,
+            enemiesPanel
+        };
+    }
 
     public void GoBackToMainPanel()
     {
@@ -18,16 +36,27 @@ public class MainMenuLogic : MonoBehaviour
         TogglePanels(rulesPanel);
     }
 
-    public void OpenArchive()
+    public void OpenKnowledgeBaseChoicePanel()
     {
-        TogglePanels(archivePanel);
+        TogglePanels(knowledgeBaseChoicePanel);
+    }
+
+    public void OpenEnemiesPanel()
+    {
+        TogglePanels(enemiesPanel);
+    }
+
+    public void OpenArsenalPanel()
+    {
+        TogglePanels(arsenalPanel);
     }
 
     private void TogglePanels(GameObject panelToActivate)
     {
-        mainPanel.SetActive(false);
-        rulesPanel.SetActive(false);
-        archivePanel.SetActive(false);
+        foreach (var item in allPanels)
+        {
+            item.SetActive(false);
+        }
 
         panelToActivate.SetActive(true);
     }
