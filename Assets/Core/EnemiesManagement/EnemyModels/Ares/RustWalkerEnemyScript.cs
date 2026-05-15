@@ -2,15 +2,9 @@ using UnityEngine;
 
 public class RustWalkerEnemyScript : EnemyScript
 {
-    protected override void setEnemySpecificValues()
+    protected override void setEnemyType()
     {
         enemyType = EnemyType.RUST_WALKER;
-
-        health = 120;
-        damageToBase = 3;
-        speed = 3f;
-
-        currencyLoot = 7;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

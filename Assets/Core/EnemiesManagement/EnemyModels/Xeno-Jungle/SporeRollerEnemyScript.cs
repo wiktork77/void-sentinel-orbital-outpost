@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class SporeRollerEnemyScript : EnemyScript
 {
-    protected override void setEnemySpecificValues()
+    protected override void setEnemyType()
     {
-        health = 100;
         enemyType = EnemyType.SPORE_ROLLER;
-        // TODO
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

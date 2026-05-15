@@ -2,14 +2,9 @@ using UnityEngine;
 
 public class HeavyBehemothEnemyScript : EnemyScript
 {
-    protected override void setEnemySpecificValues()
+    protected override void setEnemyType()
     {
         enemyType = EnemyType.HEAVY_BEHEMOTH;
-
-        health = 300;
-        speed = 1f;
-        damageToBase = 7;
-        currencyLoot = 20;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

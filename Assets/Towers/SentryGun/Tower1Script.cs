@@ -1,11 +1,8 @@
 using UnityEngine;
 public class Tower1Script  : TowerScript
 {
-    protected override void setTowerSpecificValues()
+    protected override void setTowerType()
     {
-        cost = 150;
-        range = 4f;
-        damage = 40f;
-        reloadTime = 0.8f;
+        towerType = TowerType.SENTRY_GUN;
     }
 }

@@ -31,7 +31,7 @@ public class AresDemoScenario1 : PredefinedScenario
         // level demonstracyjny przeciwnikow
 
         foreach (EnemyType enemy in Enum.GetValues(typeof(EnemyType))) {
-            if (enemy != EnemyType.SCRAP_TITAN && enemy != EnemyType.HIVE_MATRIARCH)
+            if (enemy != EnemyType.SCRAP_TITAN)
             {
                 levels[9].AddEnemies(enemy, 2, 1.5f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
             }

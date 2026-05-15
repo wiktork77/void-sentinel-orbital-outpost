@@ -15,5 +15,4 @@ public enum EnemyType
     SPORE_ROLLER,
     VIPER_ROOT,
     REGEN_BULB,
-    HIVE_MATRIARCH
 }

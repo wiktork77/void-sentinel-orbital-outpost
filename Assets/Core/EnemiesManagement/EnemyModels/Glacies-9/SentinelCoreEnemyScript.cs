@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class SentinelCoreEnemyScript : EnemyScript
 {
-    protected override void setEnemySpecificValues()
+    protected override void setEnemyType()
     {
         enemyType = EnemyType.SENTINEL_CORE_BOSS;
-        health = 200;
-        // TODO
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -41,7 +41,8 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
 
     protected virtual void Start()
     {
-        setEnemySpecificValues();
+        setEnemyType();
+        setupStats();
         animator = GetComponent<Animator>();
         animator.Play("move");
     }
@@ -124,7 +125,17 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
         Destroy(gameObject);
     }
 
-    protected abstract void setEnemySpecificValues();
+    protected abstract void setEnemyType();
+
+    protected virtual void setupStats()
+    {
+        EnemyDataModel dataModel = EnemyDataModelResolver.getEnemyDataModel(enemyType);
+
+        maxHealth = dataModel.MaxHealth;
+        health = dataModel.MaxHealth;
+        damageToBase = dataModel.DamageToBase;
+        speed = dataModel.Speed;
+    }
 
     protected virtual void OnEnemyGone()
     {

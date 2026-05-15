@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class FrostDrifterEnemyScript : EnemyScript
 {
-    protected override void setEnemySpecificValues()
+    protected override void setEnemyType()
     {
         enemyType = EnemyType.FROST_DRIFTER;
-        health = 100;
-        // TODO
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

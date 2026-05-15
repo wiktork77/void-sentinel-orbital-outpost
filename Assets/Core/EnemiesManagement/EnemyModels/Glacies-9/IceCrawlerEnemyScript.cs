@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class IceCrawlerEnemyScript : EnemyScript
 {
-    protected override void setEnemySpecificValues()
+    protected override void setEnemyType()
     {
         enemyType = EnemyType.ICE_CRAWLER;
-        health = 100;
-        // TODO
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

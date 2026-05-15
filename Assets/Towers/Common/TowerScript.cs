@@ -4,6 +4,8 @@ using System;
 
 public abstract class TowerScript : MonoBehaviour, IEffectApplier<EnemyScript>
 {
+    protected TowerType towerType;
+
     [Header("Base Stats")]
     [SerializeField] protected int cost = 100;
     [SerializeField] protected float range = 3f;
@@ -24,7 +26,8 @@ public abstract class TowerScript : MonoBehaviour, IEffectApplier<EnemyScript>
 
     protected virtual void Start()
     {
-        setTowerSpecificValues();
+        setTowerType();
+        setupStats();
         
         // Dynamiczne ustawianie zasięgu collidera
         CircleCollider2D rangeCollider = GetComponent<CircleCollider2D>();
@@ -128,7 +131,16 @@ private void RotateTowardsTarget(EnemyScript target)
     }
 }
 
-    protected abstract void setTowerSpecificValues();
+    protected abstract void setTowerType();
+    protected virtual void setupStats()
+    {
+        TowerDataModel model =  TowerDataModelResolver.getTowerDataModel(towerType);
+
+        cost = model.Cost;
+        range = model.Range;
+        damage  = model.Damage;
+        reloadTime = model.ReloadTime;
+    }
 
     public void SendEffect(Effect<EnemyScript> effect, EnemyScript receiver)
     {

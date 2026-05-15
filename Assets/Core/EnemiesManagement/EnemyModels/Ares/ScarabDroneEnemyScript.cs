@@ -2,13 +2,9 @@ using UnityEngine;
 
 public class ScarabDroneEnemyScript : EnemyScript
 {
-    protected override void setEnemySpecificValues()
+    protected override void setEnemyType()
     {
         enemyType = EnemyType.SCARAB_DRONE;
-
-        health = 30;
-        speed = 4f;
-        currencyLoot = 3;
     }
 
     protected override void Start()

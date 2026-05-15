@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class RegenBulbEnemyScript : EnemyScript
 {
-    protected override void setEnemySpecificValues()
+    protected override void setEnemyType()
     {
-        health = 100;
         enemyType = EnemyType.REGEN_BULB;
-        // TODO 
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

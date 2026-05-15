@@ -5,12 +5,9 @@ public class SlowAuraTower : TowerScript
     [Header("Aura Settings")]
     public Transform rangeVisual; // Tu przeciągniesz obiekt "RangeVisual"
 
-    protected override void setTowerSpecificValues()
+    protected override void setupStats()
     {
-        // Twoje statystyki
-        cost = 150;
-        range = 10f; 
-        reloadTime = 0.5f; // Jak często wieża "odświeża" spowolnienie u wrogów
+        base.setupStats();
 
         // Automatyczne skalowanie okręgu do zasięgu
         if (rangeVisual != null)
@@ -46,4 +43,9 @@ public class SlowAuraTower : TowerScript
 
     // Blokujemy strzelanie pociskami, bo to wieża obszarowa
     protected override void Shoot(EnemyScript target) { }
+
+    protected override void setTowerType()
+    {
+        towerType = TowerType.SLOW_TOWER;
+    }
 }
