@@ -15,7 +15,10 @@ public class AresDemoScenario2 : PredefinedScenario
             levels[i] = new Level();
         }
 
+        levels[1].AddEnemies(EnemyType.FROST_DRIFTER, 5, 1.5f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+
         levels[2].AddEnemies(EnemyType.SCARAB_DRONE, 5, 1f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+        
 
         levels[3].AddEnemies(EnemyType.SCARAB_DRONE, 5, 0.5f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
         levels[3].AddEnemies(EnemyType.RUST_WALKER, 2, 0.5f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);

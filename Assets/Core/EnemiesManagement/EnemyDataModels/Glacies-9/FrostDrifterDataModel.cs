@@ -12,5 +12,5 @@ public class FrostDrifterDataModel : EnemyDataModel
 
     public override int DamageToBase => 7;
 
-    public override float Speed => 3.5f;
+    public override float Speed => 5f;
 }

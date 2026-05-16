@@ -33,6 +33,7 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
     public int CurrencyLoot => currencyLoot;
     public int DamageToBase => damageToBase;
 
+    public int Health => health;
     public float Speed
     {
         get => speed;
@@ -180,12 +181,17 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
         }
     }
 
-    public virtual void DecreaseSpeed(float decreaseRatio)
+    public virtual float Slow(float decreaseRatio)
     {
+        float decreasedAmount = 0;
+
         if (decreaseRatio >= 0 && decreaseRatio <= 1)
         {
-            speed -= speed*decreaseRatio;
+            decreasedAmount = speed * decreaseRatio;
+            speed -= decreasedAmount;
         }
+
+        return decreasedAmount;
     }
 
     public virtual void SetSpeed(float speed)
