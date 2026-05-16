@@ -16,6 +16,9 @@ public class AresDemoScenario2 : PredefinedScenario
         }
 
         levels[1].AddEnemies(EnemyType.FROST_DRIFTER, 5, 1.5f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        levels[1].AddEnemies(EnemyType.ICE_CRAWLER, 5, 1.5f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        levels[1].AddEnemies(EnemyType.CRYO_COLLOSSUS, 5, 1.5f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        levels[1].AddEnemies(EnemyType.SENTINEL_CORE_BOSS, 5, 1.5f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
 
         levels[2].AddEnemies(EnemyType.SCARAB_DRONE, 5, 1f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
         

@@ -11,6 +11,8 @@ public class SlowEffect : Effect<EnemyScript>
     {
         float decreasedAmount = target.Slow(decreaseRatio);
         amountDecreased.Add(target, decreasedAmount);
+
+        // Debug.Log("Decreasing the speed of " + target.name + " to  " + target.Speed);
     }
 
     public override void OnRemove(EnemyScript target)
@@ -34,6 +36,6 @@ public class SlowEffect : Effect<EnemyScript>
         target.SetSpeed(desiredSpeed);
 
 
-        Debug.Log("Reverting speed of " + target.name + " to  " + desiredSpeed);
+        // Debug.Log("Reverting speed of " + target.name + " to  " + desiredSpeed);
     }
 }

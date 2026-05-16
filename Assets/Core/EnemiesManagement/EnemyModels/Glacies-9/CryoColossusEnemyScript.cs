@@ -1,7 +1,9 @@
 using UnityEngine;
 
-public class CryoColossusEnemyScript : EnemyScript
+public class CryoColossusEnemyScript : FrostResistantEnemy
 {
+    protected override float FrostResitance => 0.35f;
+
     protected override void setEnemyType()
     {
         enemyType = EnemyType.CRYO_COLLOSSUS;

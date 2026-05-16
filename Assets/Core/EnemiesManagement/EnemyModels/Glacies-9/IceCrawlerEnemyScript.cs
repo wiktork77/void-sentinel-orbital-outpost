@@ -1,7 +1,9 @@
 using UnityEngine;
 
-public class IceCrawlerEnemyScript : EnemyScript
+public class IceCrawlerEnemyScript : FrostResistantEnemy
 {
+    protected override float FrostResitance => 0.95f;
+
     protected override void setEnemyType()
     {
         enemyType = EnemyType.ICE_CRAWLER;

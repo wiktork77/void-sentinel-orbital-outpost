@@ -1,7 +1,9 @@
 using UnityEngine;
 
-public class FrostDrifterEnemyScript : EnemyScript
+public class FrostDrifterEnemyScript : FrostResistantEnemy
 {
+    protected override float FrostResitance => 0.65f;
+
     protected override void setEnemyType()
     {
         enemyType = EnemyType.FROST_DRIFTER;
@@ -18,4 +20,6 @@ public class FrostDrifterEnemyScript : EnemyScript
     {
         base.Update();
     }
+
+
 }
