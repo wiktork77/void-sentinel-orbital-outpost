@@ -1,41 +1,30 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewSlowEffect", menuName = "Effects/Slow")]
 public class SlowEffect : Effect<EnemyScript>
 {
-    private Dictionary<EnemyScript, float> amountDecreased = new();
     public float decreaseRatio;
 
-    public override void OnApply(EnemyScript target)
+    public override Action<EnemyScript> OnApply(EnemyScript target)
     {
         float decreasedAmount = target.Slow(decreaseRatio);
-        amountDecreased.Add(target, decreasedAmount);
 
-        // Debug.Log("Decreasing the speed of " + target.name + " to  " + target.Speed);
+        return (enemy) => {
+            float currentSpeed = enemy.Speed;
+            float desiredSpeed = currentSpeed + decreasedAmount;
+
+            enemy.SetSpeed(desiredSpeed);
+        };
     }
 
     public override void OnRemove(EnemyScript target)
     {
-        RevertSlowEffect(target);
-        amountDecreased.Remove(target);
     }
 
     public override void OnTick(EnemyScript target, float deltaTime)
     {
         // nothing - not periodic, but can be, for example the slow effect can dampen over time
-    }
-
-    private void RevertSlowEffect(EnemyScript target)
-    {
-        float decreasedAmount = amountDecreased[target];
-        float currentSpeed = target.Speed;
-
-        float desiredSpeed = currentSpeed + decreasedAmount;
-
-        target.SetSpeed(desiredSpeed);
-
-
-        // Debug.Log("Reverting speed of " + target.name + " to  " + desiredSpeed);
     }
 }

@@ -24059,6 +24059,7 @@ GameObject:
   - component: {fileID: 1128902256}
   - component: {fileID: 1128902255}
   - component: {fileID: 1128902254}
+  - component: {fileID: 1128902257}
   m_Layer: 0
   m_Name: IcePatchesMap
   m_TagString: Ice Patch
@@ -24601,12 +24602,12 @@ CompositeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
@@ -25385,6 +25386,19 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &1128902257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128902250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba71cbcc951451419007f8e8b0f3590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IcePatchScript
+  icePatchBuff: {fileID: 11400000, guid: 0bdb26fe93971f649959771ba6210487, type: 2}
 --- !u!1 &1136382492
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class Effect<T> : ScriptableObject where T : IEffectReceiver<T>
@@ -9,7 +10,7 @@ public abstract class Effect<T> : ScriptableObject where T : IEffectReceiver<T>
     public bool isStackable;
     public bool isPeriodic;
 
-    public abstract void OnApply(T target);
+    public abstract Action<T> OnApply(T target);
     public abstract void OnTick(T target, float deltaTime);
     public abstract void OnRemove(T target);
 }

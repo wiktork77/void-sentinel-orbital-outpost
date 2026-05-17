@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 
 public class EffectInstance<T> where T : IEffectReceiver<T>
 {
     public Effect<T> Data { get; private set; }
     private T _target;
+    private Action<T> _revertAction;
     private float _originalDuration;
     private float _durationTimer;
     private float _tickTimer;
@@ -16,7 +18,7 @@ public class EffectInstance<T> where T : IEffectReceiver<T>
         _durationTimer = data.duration;
         _tickTimer = 0; // Zaczynamy od zera, ¿eby pierwszy tick by³ po tickInterval
 
-        Data.OnApply(_target);
+        _revertAction = Data.OnApply(_target);
     }
 
     public void Update(float deltaTime)
@@ -54,5 +56,9 @@ public class EffectInstance<T> where T : IEffectReceiver<T>
 
     public bool IsFinished => !Data.isPermanent && _durationTimer <= 0;
 
-    public void End() => Data.OnRemove(_target);
+    public void End()
+    {
+        _revertAction.Invoke(_target);
+        Data.OnRemove(_target);
+    }
 }

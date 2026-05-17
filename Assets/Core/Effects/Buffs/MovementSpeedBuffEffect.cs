@@ -1,22 +1,27 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewSlowEffect", menuName = "Effects/Buffs/Speed")]
-public class SpeedBuffEffect : Effect<EnemyScript>
+[CreateAssetMenu(fileName = "MovementSpeedBuff", menuName = "Effects/Buffs/MovementSpeed")]
+public class MovementSpeedBuffEffect : Effect<EnemyScript>
 {
-    private Dictionary<EnemyScript, float> affected = new();
-
     public float increaseValue;
 
-    public override void OnApply(EnemyScript target)
+    public override Action<EnemyScript> OnApply(EnemyScript target)
     {
         float increasedAmount = target.BuffSpeed(increaseValue);
-        affected.Add(target, increasedAmount);
+
+        return (enemy) =>
+        {
+            float currentSpeed = enemy.Speed;
+            float desiredSpeed = currentSpeed - increaseValue;
+
+            enemy.SetSpeed(desiredSpeed);
+        };
     }
 
     public override void OnRemove(EnemyScript target)
     {
-        throw new System.NotImplementedException();
     }
 
     public override void OnTick(EnemyScript target, float deltaTime)
@@ -27,8 +32,6 @@ public class SpeedBuffEffect : Effect<EnemyScript>
 
     private void RevertSpeedEffect(EnemyScript target)
     {
-
-
         // Debug.Log("Reverting speed of " + target.name + " to  " + desiredSpeed);
     }
 }
