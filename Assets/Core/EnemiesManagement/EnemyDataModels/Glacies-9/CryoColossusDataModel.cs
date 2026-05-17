@@ -8,7 +8,7 @@ public class CryoColossusDataModel : EnemyDataModel
 
     public override int MaxHealth => 550;
 
-    public override int Loot => 30;
+    public override int Loot => 50;
 
     public override int DamageToBase => 20;
 

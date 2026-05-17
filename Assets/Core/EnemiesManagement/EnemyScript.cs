@@ -136,6 +136,7 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
         health = dataModel.MaxHealth;
         damageToBase = dataModel.DamageToBase;
         speed = dataModel.Speed;
+        currencyLoot = dataModel.Loot;
     }
 
     protected virtual void OnEnemyGone()
@@ -192,6 +193,18 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
         }
 
         return decreasedAmount;
+    }
+
+    public virtual float BuffSpeed(float increaseAmount)
+    {
+        if (increaseAmount >= 0)
+        {
+            speed += increaseAmount;
+            return increaseAmount;
+        } else
+        {
+            return 0;
+        }
     }
 
     public virtual void SetSpeed(float speed)

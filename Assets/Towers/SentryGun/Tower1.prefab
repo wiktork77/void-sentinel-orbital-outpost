@@ -79,7 +79,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 50
+  m_SortingOrder: 25
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: aef66197c6706264793573979eddcf7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -175,10 +175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f7e53fc68add47518e1921a0ccddcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower1Script
-  cost: 100
-  range: 50
-  damage: 10
-  reloadTime: 1
   projectilePrefab: {fileID: 5458741943644186181, guid: c14ccc324fec94702a9d0ce90fee142e, type: 3}
   firePoint: {fileID: 4325674762338348922}
   partToRotate: {fileID: 6642877551993926842}
@@ -264,7 +260,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 51
+  m_SortingOrder: 25
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: f30d740594c0d1842a4db8bfd3afc4f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -355,7 +351,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 50
+  m_SortingOrder: 25
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: e722d640e03e2154d89310b4e8b374db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

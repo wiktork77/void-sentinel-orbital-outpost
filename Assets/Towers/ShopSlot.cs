@@ -5,8 +5,10 @@ using TMPro;
 
 public class ShopSlot : MonoBehaviour
 {
-    [Header("Dane Wieży")]
-    public TowerData towerData;
+    [Header("Typ Wieży")]
+    public TowerType towerType;
+
+    private TowerDataModel towerDataModel;
 
     [Header("Referencje UI")]
     public Image iconImage;
@@ -19,7 +21,9 @@ public class ShopSlot : MonoBehaviour
     private MapLogicScript mapLogicScript;
 
    void Start()
-    { 
+    {
+        towerDataModel = TowerDataModelResolver.getTowerDataModel(towerType);
+
         if (gameManager != null)
         {
             mapLogicScript = gameManager.GetComponent<MapLogicScript>();
@@ -36,9 +40,9 @@ public class ShopSlot : MonoBehaviour
     void Update()
     {
         // Sprawdzamy co klatkę, czy gracza stać na tę wieżę
-        if (towerData != null && mapLogicScript != null)
+        if (towerDataModel != null && mapLogicScript != null)
         {
-            bool canAfford = mapLogicScript.hasEnoughCurrency(towerData.cost);
+            bool canAfford = mapLogicScript.hasEnoughCurrency(towerDataModel.Cost);
 
             // Ustawiamy czy przycisk jest klikalny
             buyButton.interactable = canAfford;
@@ -49,18 +53,18 @@ public class ShopSlot : MonoBehaviour
     }
     public void UpdateUI()
     {
-        if (towerData != null)
+        if (towerDataModel != null)
         {
-            if(iconImage != null) iconImage.sprite = towerData.icon;
-            if(nameText != null) nameText.text = towerData.towerName;
-            if(costText != null) costText.text = towerData.cost.ToString();
+            if(iconImage != null) iconImage.sprite = TowerAvatarResolver.GetTowerSprite(towerType);
+            if(nameText != null) nameText.text = towerDataModel.Name;
+            if(costText != null) costText.text = towerDataModel.Cost.ToString();
         }
     }
 
     public void OnClick()
 {
     // 1. Sprawdź czy przypisałeś TowerData (niebieski plik) w Inspektorze przycisku
-    if (towerData == null)
+    if (towerDataModel == null)
     {
         Debug.LogError("BŁĄD: towerData jest puste! Przeciągnij plik wieży do slotu w Inspektorze.");
         return;
@@ -74,7 +78,7 @@ public class ShopSlot : MonoBehaviour
     }
 
     // 3. Sprawdź czy nas stać
-    if (mapLogicScript.hasEnoughCurrency(towerData.cost))
+    if (mapLogicScript.hasEnoughCurrency(towerDataModel.Cost))
     {
         //Debug.Log("Wybrano: " + towerData.towerName);
 
@@ -85,7 +89,7 @@ public class ShopSlot : MonoBehaviour
             return;
         }
 
-        PlacementManager.Instance.StartPlacement(towerData);
+        PlacementManager.Instance.StartPlacement(towerType);
     }
     else
     {

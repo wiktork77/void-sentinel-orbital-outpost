@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AresMapLogic
   - Enemy
+  - Ice Patch
   layers:
   - Default
   - TransparentFX

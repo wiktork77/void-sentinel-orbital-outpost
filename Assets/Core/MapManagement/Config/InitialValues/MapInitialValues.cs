@@ -14,6 +14,13 @@ public class AresInitialValues : MapInitialValues
     public override int InitialCurrency => 500;
 }
 
+public class GlaciesInitialValues : MapInitialValues
+{
+    public override int InitialHealth => 70;
+
+    public override int InitialCurrency => 750;
+}
+
 
 public class GodModeInitialValues : MapInitialValues
 {

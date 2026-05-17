@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SentinelCore
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: f9c1bc2b730cfaf48ae7e57c1910ad21, type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: f9c1bc2b730cfaf48ae7e57c1910ad21, type: 3}
       propertyPath: m_LocalScale.x
       value: 3

@@ -6,11 +6,10 @@ public abstract class TowerScript : MonoBehaviour, IEffectApplier<EnemyScript>
 {
     protected TowerType towerType;
 
-    [Header("Base Stats")]
-    [SerializeField] protected int cost = 100;
-    [SerializeField] protected float range = 3f;
-    [SerializeField] protected float damage = 10f;
-    [SerializeField] protected float reloadTime = 1f;
+    protected int cost = 100;
+    protected float range = 3f;
+    protected float damage = 10f;
+    protected float reloadTime = 1f;
 
     [Header("References")]
     public GameObject projectilePrefab;

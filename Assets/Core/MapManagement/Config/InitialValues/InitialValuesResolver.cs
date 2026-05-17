@@ -9,6 +9,9 @@ public class InitialValuesResolver
             case MapType.ARES:
                 return new AresInitialValues();
 
+            case MapType.GLACIES_X:
+                return new GlaciesInitialValues();
+
             case MapType.GODMODE:
                 return new GodModeInitialValues();
 

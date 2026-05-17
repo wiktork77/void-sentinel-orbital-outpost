@@ -5,13 +5,20 @@ public class PlacementManager : MonoBehaviour
 {
     public static PlacementManager Instance;
 
-    private TowerData currentTower;
+    //private TowerData currentTower;
+
+    private TowerType currentTowerType;
+    private TowerDataModel currentTowerDataModel;
+
     private GameObject ghost;
     public GameObject shopPanel;
 
     public GameObject gameManager;
 
+    public TowerRegistrySO towerRegistry;
+
     private MapLogicScript mapLogicScript;
+    
 
     void Awake() => Instance = this;
 
@@ -69,17 +76,18 @@ public class PlacementManager : MonoBehaviour
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
             Destroy(ghost);
-            currentTower = null;
+            currentTowerDataModel = null;
         }
     }
 }
 
-    public void StartPlacement(TowerData data)
+    public void StartPlacement(TowerType data)
     {
         if (ghost != null) Destroy(ghost); // Usuń poprzedniego ducha jeśli był
 
-        currentTower = data;
-        ghost = Instantiate(data.towerPrefab);
+        UpdateCurrentTower(data);
+
+        ghost = Instantiate(towerRegistry.getPrefab(currentTowerType));
         
         // Wyłączamy skrypty wieży, żeby nie strzelała będąc duchem!
         // Zakładam, że Twoja wieża ma skrypt TowerScript
@@ -92,19 +100,19 @@ public class PlacementManager : MonoBehaviour
 
    void PlaceTower(Vector3 position)
 {
-    if (mapLogicScript.hasEnoughCurrency(currentTower.cost))
+    if (mapLogicScript.hasEnoughCurrency(currentTowerDataModel.Cost))
     {
-        GameObject realTower = Instantiate(currentTower.towerPrefab, position, Quaternion.identity);
+        GameObject realTower = Instantiate(towerRegistry.getPrefab(currentTowerType), position, Quaternion.identity);
         
 
 
         if (realTower.GetComponent<TowerScript>() != null)
             realTower.GetComponent<TowerScript>().enabled = true;
 
-        mapLogicScript.loseCurrency(currentTower.cost);
+        mapLogicScript.loseCurrency(currentTowerDataModel.Cost);
 
         Destroy(ghost);
-        currentTower = null;
+        currentTowerDataModel= null;
     }
 }
 
@@ -129,8 +137,19 @@ public class PlacementManager : MonoBehaviour
         if (isActive && ghost != null) 
         {
             Destroy(ghost);
-            currentTower = null;
+            currentTowerDataModel = null;
         }
     }
 }
+
+    private void UpdateCurrentTower(TowerType type)
+    {
+        currentTowerType = type;
+        currentTowerDataModel = TowerDataModelResolver.getTowerDataModel(currentTowerType);
+    }
+
+    private void UnsetCurrentTower()
+    {
+        currentTowerDataModel = null;
+    }
 }

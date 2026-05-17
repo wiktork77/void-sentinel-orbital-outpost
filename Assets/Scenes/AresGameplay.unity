@@ -1331,7 +1331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6120d1be077446a19c43a007ae33020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopSlot
-  towerData: {fileID: 11400000, guid: 4b4a45e8536e84b2db257cca44d93b2d, type: 2}
+  towerType: 1
   iconImage: {fileID: 1805632987}
   nameText: {fileID: 2038326782}
   costText: {fileID: 1285898880}
@@ -1833,7 +1833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6120d1be077446a19c43a007ae33020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  towerData: {fileID: 11400000, guid: 53fb57b16186146b9b8e088f578910d0, type: 2}
+  towerType: 2
   iconImage: {fileID: 182226104}
   nameText: {fileID: 1037500417}
   costText: {fileID: 23315006}
@@ -35969,6 +35969,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   shopPanel: {fileID: 350205268}
   gameManager: {fileID: 418355814}
+  towerRegistry: {fileID: 11400000, guid: 290644fe571d4c7409b2f02f8250ed13, type: 2}
 --- !u!4 &1851690332
 Transform:
   m_ObjectHideFlags: 0
@@ -36159,7 +36160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6120d1be077446a19c43a007ae33020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  towerData: {fileID: 11400000, guid: b22a784db0a5c4f73859a7d471d41840, type: 2}
+  towerType: 0
   iconImage: {fileID: 1702065616}
   nameText: {fileID: 757623608}
   costText: {fileID: 1747829549}

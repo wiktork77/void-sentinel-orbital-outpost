@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class SentinelCoreEnemyScript : FrostResistantEnemy
 {
-    private float frostResitance = 0.15f;
-
     protected override float FrostResitance => 0.15f;
 
     protected override void setEnemyType()
