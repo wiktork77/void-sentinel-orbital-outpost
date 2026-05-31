@@ -8,6 +8,8 @@ public class TowerDataModelResolver
         { TowerType.SENTRY_GUN, new SentryGunDataModel() },
         { TowerType.LASER_BOLT, new LaserBoltDataModel() },
         { TowerType.SLOW_TOWER, new SlowTowerDataModel() },
+        { TowerType.GLUE_TOWER, new GlueTowerDataModel() },
+        { TowerType.TRIPLE_TOWER, new TripleTowerDataModel() }
     };
 
     public static TowerDataModel getTowerDataModel(TowerType towerType)

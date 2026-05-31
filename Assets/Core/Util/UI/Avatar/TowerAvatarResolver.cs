@@ -8,7 +8,9 @@ public class TowerAvatarResolver
     {
         { TowerType.SENTRY_GUN, JoinBasePath("SentryGun") },
         { TowerType.LASER_BOLT, JoinBasePath("LaserBolt") },
-        { TowerType.SLOW_TOWER, JoinBasePath("SlowTower") }
+        { TowerType.SLOW_TOWER, JoinBasePath("SlowTower") },
+        { TowerType.GLUE_TOWER, JoinBasePath("GlueTower") }
+
     };
 
     public static Sprite GetTowerSprite(TowerType type)
@@ -19,7 +21,7 @@ public class TowerAvatarResolver
 
             if (loadedSprite != null) return loadedSprite;
 
-            Debug.LogError($"Nie znaleziono Sprite'a na œcie¿ce: Resources/{path}");
+            Debug.LogError($"Nie znaleziono Sprite'a na ï¿½cieï¿½ce: Resources/{path}");
         }
         return null;
     }
