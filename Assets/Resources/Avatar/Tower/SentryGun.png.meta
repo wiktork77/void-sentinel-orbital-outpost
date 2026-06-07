@@ -3,8 +3,8 @@ guid: 3e35aa30c08554dd18206e74882dbb0d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3508832501667127050
-    second: Screenshot 2026-06-03 at 17.56.04_0
+      213: -1270695481580601169
+    second: SentryGun_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Screenshot 2026-06-03 at 17.56.04_0
+      name: SentryGun_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 684
-        height: 844
+        x: 198
+        y: 64
+        width: 177
+        height: 440
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6f029c92e6f1e4fc0800000000000000
-      internalID: -3508832501667127050
+      spriteID: fa0c1b221359d5ee0800000000000000
+      internalID: -1270695481580601169
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Screenshot 2026-06-03 at 17.56.04_0: -3508832501667127050
+      SentryGun_0: -1270695481580601169
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

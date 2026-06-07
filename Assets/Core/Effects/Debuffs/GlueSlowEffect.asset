@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: GlueSlowEffect
   m_EditorClassIdentifier: Assembly-CSharp::SlowEffect
   effectName: GlueSlowEffect
-  duration: 3
+  duration: 4
   tickInterval: 0
   isPermanent: 0
   isStackable: 0
   isPeriodic: 0
-  decreaseRatio: 0.8
+  magicSchool: 1
+  decreaseRatio: 0.75

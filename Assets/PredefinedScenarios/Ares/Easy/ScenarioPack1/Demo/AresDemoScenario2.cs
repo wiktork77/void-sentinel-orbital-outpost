@@ -16,23 +16,23 @@ public class AresDemoScenario2 : PredefinedScenario
         }
 
         levels[1].AddEnemies(EnemyType.FROST_DRIFTER, 5, 1.5f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
-        levels[1].AddEnemies(EnemyType.ICE_CRAWLER, 5, 1.5f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
-        levels[1].AddEnemies(EnemyType.CRYO_COLLOSSUS, 5, 1.5f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
-        levels[1].AddEnemies(EnemyType.SENTINEL_CORE_BOSS, 5, 1.5f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+        //levels[1].AddEnemies(EnemyType.ICE_CRAWLER, 5, 1.5f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+        //levels[1].AddEnemies(EnemyType.CRYO_COLLOSSUS, 5, 1.5f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+        //levels[1].AddEnemies(EnemyType.SENTINEL_CORE_BOSS, 5, 1.5f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
 
-        levels[2].AddEnemies(EnemyType.SCARAB_DRONE, 5, 1f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
-        
+        //levels[2].AddEnemies(EnemyType.SCARAB_DRONE, 5, 1f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
 
-        levels[3].AddEnemies(EnemyType.SCARAB_DRONE, 5, 0.5f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
-        levels[3].AddEnemies(EnemyType.RUST_WALKER, 2, 0.5f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
 
-        levels[4].AddEnemies(EnemyType.RUST_WALKER, 2, 1.5f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+        //levels[3].AddEnemies(EnemyType.SCARAB_DRONE, 5, 0.5f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+        //levels[3].AddEnemies(EnemyType.RUST_WALKER, 2, 0.5f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
 
-        levels[5].AddEnemies(EnemyType.SCARAB_DRONE, 10, 0.7f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+        //levels[4].AddEnemies(EnemyType.RUST_WALKER, 2, 1.5f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
 
-        levels[6].AddEnemies(EnemyType.RUST_WALKER, 5, 3.5f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+        //levels[5].AddEnemies(EnemyType.SCARAB_DRONE, 10, 0.7f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
 
-        levels[7].AddEnemies(EnemyType.HEAVY_BEHEMOTH, 5, 1f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+        //levels[6].AddEnemies(EnemyType.RUST_WALKER, 5, 3.5f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+
+        //levels[7].AddEnemies(EnemyType.HEAVY_BEHEMOTH, 5, 1f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
 
         return new MapLevelsScenario(levels);
     }

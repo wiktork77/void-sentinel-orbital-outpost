@@ -9,7 +9,7 @@ public class SlowEffect : Effect<EnemyScript>
 
     public override Action<EnemyScript> OnApply(EnemyScript target)
     {
-        float decreasedAmount = target.Slow(decreaseRatio);
+        float decreasedAmount = target.Slow(decreaseRatio, magicSchool);
 
         return (enemy) => {
             float currentSpeed = enemy.Speed;

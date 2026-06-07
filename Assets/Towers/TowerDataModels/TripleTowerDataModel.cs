@@ -3,9 +3,9 @@ using UnityEngine;
 public class TripleTowerDataModel : TowerDataModel
 {
   public override string Name => "Triple Shot Tower";
-    public override string Description => "Fires three projectiles at once in a spread cone.";
-    public override float Damage => 15f;       // ObraÅ¼enia jednego pocisku
-    public override float Range => 114.5f;      // Åšredni/krÃ³tki zasiÄ™g (jak shotgun)
-    public override int Cost => 250;          // DroÅ¼sza wieÅ¼a
-    public override float ReloadTime => 1.2f; // TrochÄ™ dÅ‚uÅ¼szy przeÅ‚adunek
+    public override string Description => "Wystrzeliwuje sto¿kow¹ salwê 3 pocisków na raz, rozdzielonych pod k¹tem 15 stopni. Z dystansu wie¿a doskonale czyœci grupy s³abszych jednostek, natomiast w walce na bliski zasiêg wszystkie pociski mog¹ uderzyæ w jeden cel, zadaj¹c mu zmasowane obra¿enia. Idealna broñ na zakrêty i w¹skie gard³a mapy.";
+    public override float Damage => 18f;
+    public override float Range => 15f;
+    public override int Cost => 250;
+    public override float ReloadTime => 0.7f;
 }

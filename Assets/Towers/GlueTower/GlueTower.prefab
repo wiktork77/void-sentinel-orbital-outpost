@@ -90,6 +90,7 @@ MonoBehaviour:
   rotationOffset: -90
   effectsToApply:
   - {fileID: 11400000, guid: 7305927c134984f53b4e0c8666d6eb6d, type: 2}
+  - {fileID: 11400000, guid: 8cdd35845d41cf24baa2ff5beabb57ff, type: 2}
 --- !u!1 &5147202492565966852
 GameObject:
   m_ObjectHideFlags: 0

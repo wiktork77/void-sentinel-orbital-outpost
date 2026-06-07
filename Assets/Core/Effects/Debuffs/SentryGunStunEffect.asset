@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bac14e0793db0e54d84b706564afbaec, type: 3}
-  m_Name: MovementSpeedBuff
-  m_EditorClassIdentifier: Assembly-CSharp::MovementSpeedBuffEffect
-  effectName: Ice Patch Movement Speed Buff
-  duration: 0
+  m_Script: {fileID: 11500000, guid: 3c3e1604f5542c144b7d5464a3fbfc14, type: 3}
+  m_Name: SentryGunStunEffect
+  m_EditorClassIdentifier: Assembly-CSharp::StunEffect
+  effectName: Sentry Gun Stun Effect
+  duration: 2
   tickInterval: 1
-  isPermanent: 1
-  isStackable: 1
+  isPermanent: 0
+  isStackable: 0
   isPeriodic: 0
-  magicSchool: 0
-  increaseValue: 1
+  applyChance: 0.2
+  magicSchool: 3

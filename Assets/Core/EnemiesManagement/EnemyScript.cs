@@ -30,6 +30,8 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
 
     private List<EffectInstance<EnemyScript>> _activeEffects = new List<EffectInstance<EnemyScript>>();
 
+    private Boolean CanMove = true;
+
     public int CurrencyLoot => currencyLoot;
     public int DamageToBase => damageToBase;
 
@@ -45,7 +47,7 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
         setEnemyType();
         setupStats();
         animator = GetComponent<Animator>();
-        animator.Play("move");
+        SetAnimation("move");
     }
 
     protected virtual void Update()
@@ -70,8 +72,11 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
 
     private void Move()
     {
-        Vector3 direction = _targetWaypoint.position - transform.position;
-        transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+        if (CanMove)
+        {
+            Vector3 direction = _targetWaypoint.position - transform.position;
+            transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+        }
     }
 
     private void CheckDistance()
@@ -107,7 +112,11 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
 
     public virtual void TakeDamage(float amount) 
     {
+        Debug.Log(this.enemyType + " took " + amount + " damage");
+
         health -= Mathf.RoundToInt(amount);
+
+        Debug.Log(this.enemyType + " has " + health + " health left");
 
         if (health <= 0)
         {
@@ -118,7 +127,6 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
 
     protected virtual void Defeat()
     {
-        Debug.Log("Mob defeated");
         _OnEnemyDefeated?.Invoke(this);
 
         
@@ -146,6 +154,11 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
 
     public void ApplyEffect(Effect<EnemyScript> effectData)
     {
+        if (UnityEngine.Random.value > effectData.applyChance)
+        {
+            return;
+        }
+
 
         if (!effectData.isStackable)
         {
@@ -182,7 +195,7 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
         }
     }
 
-    public virtual float Slow(float decreaseRatio)
+    public virtual float Slow(float decreaseRatio, EffectMagicSchool magicSchool)
     {
         float decreasedAmount = 0;
 
@@ -193,6 +206,18 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
         }
 
         return decreasedAmount;
+    }
+
+    public virtual void Stun(EffectMagicSchool magicSchool)
+    {
+        SetAnimation("idle");
+        CanMove = false;
+    }
+
+    public virtual void Unstun()
+    {
+        SetAnimation("move");
+        CanMove = true;
     }
 
     public virtual float BuffSpeed(float increaseAmount)
@@ -210,5 +235,10 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
     public virtual void SetSpeed(float speed)
     {
         this.speed = speed;
+    }
+
+    public virtual void SetAnimation(string animationName)
+    {
+        animator.Play(animationName);
     }
 }

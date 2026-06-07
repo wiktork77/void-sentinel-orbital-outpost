@@ -4,10 +4,15 @@ public abstract class FrostResistantEnemy : EnemyScript
 {
     protected abstract float FrostResitance { get; }
 
-    public override float Slow(float decreaseRatio)
+    public override float Slow(float decreaseRatio, EffectMagicSchool magicSchool)
     {
-        float decreaseRatioAfterFrostResistance = (1 - FrostResitance) * decreaseRatio;
+        float decreaseRatioAfterFrostResistance = decreaseRatio;
 
-        return base.Slow(decreaseRatioAfterFrostResistance);
+        if (magicSchool == EffectMagicSchool.FROST)
+        {
+            decreaseRatioAfterFrostResistance = (1 - FrostResitance) * decreaseRatio;
+        }
+        
+        return base.Slow(decreaseRatioAfterFrostResistance, magicSchool);
     }
 }

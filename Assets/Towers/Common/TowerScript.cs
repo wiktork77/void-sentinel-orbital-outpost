@@ -9,7 +9,7 @@ public abstract class TowerScript : MonoBehaviour, IEffectApplier<EnemyScript>
     protected int cost = 100;
     protected float range = 3f;
     protected float damage = 10f;
-    protected float reloadTime = 1f;
+    protected float reloadTime = 1f; 
 
     [Header("References")]
     public GameObject projectilePrefab;
