@@ -9,7 +9,8 @@ public class TowerAvatarResolver
         { TowerType.SENTRY_GUN, JoinBasePath("SentryGun") },
         { TowerType.LASER_BOLT, JoinBasePath("LaserBolt") },
         { TowerType.SLOW_TOWER, JoinBasePath("SlowTower") },
-        { TowerType.GLUE_TOWER, JoinBasePath("GlueTower") }
+        { TowerType.GLUE_TOWER, JoinBasePath("GlueTower") },
+        { TowerType.TRIPLE_TOWER, JoinBasePath("TripleTower") }
 
     };
 

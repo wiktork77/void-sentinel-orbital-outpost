@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -8225244225748501508}
   - component: {fileID: -1324909290623698322}
   m_Layer: 0
-  m_Name: LightShell
+  m_Name: Shell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

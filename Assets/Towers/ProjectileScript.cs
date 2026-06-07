@@ -4,7 +4,7 @@ using UnityEngine;
 public class ProjectileScript : MonoBehaviour
 {
     private EnemyScript target;
-    private float damage;
+    protected float damage;
     public float speed = 15f; 
     public float rotationOffset = -90f;
 
@@ -16,7 +16,7 @@ public class ProjectileScript : MonoBehaviour
         damage = _damage;
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (target == null)
         {

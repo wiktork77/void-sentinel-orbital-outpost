@@ -83,7 +83,7 @@ public abstract class TowerScript : MonoBehaviour, IEffectApplier<EnemyScript>
     }
 }
 
-private void RotateTowardsTarget(EnemyScript target)
+protected void RotateTowardsTarget(EnemyScript target)
 
 {
     if (partToRotate == null) return;

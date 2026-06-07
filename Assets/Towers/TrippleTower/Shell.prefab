@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 392139681893640597}
   - component: {fileID: 5250535392401697934}
   - component: {fileID: -8225244225748501508}
-  - component: {fileID: -1324909290623698322}
+  - component: {fileID: 4082124878764486132}
   m_Layer: 0
   m_Name: Shell
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.028, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.59296876, y: 0.59812504, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,8 +83,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 100
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8491355091146511345, guid: e716a592a35164d3ab7af6a39e6a55d1, type: 3}
-  m_Color: {r: 0.9056604, g: 0.88008374, b: 0.11534355, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 479b5200151b3674fbfd04f520cb302d, type: 3}
+  m_Color: {r: 0.18115878, g: 0.58760536, b: 0.6509434, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -129,7 +129,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 1.28
---- !u!114 &-1324909290623698322
+--- !u!114 &4082124878764486132
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,8 +138,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 5458741943644186181}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a6bace3adff6457abf762127024b7d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 218bb781d1d6d416399e1e19af6b10f8, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::SpreadProjectileScript
   speed: 15
   rotationOffset: -90
