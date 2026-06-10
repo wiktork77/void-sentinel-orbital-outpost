@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
@@ -39,7 +40,6 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
     public float Speed
     {
         get => speed;
-        set => speed = value;
     }
 
     protected virtual void Start()
@@ -75,7 +75,7 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
         if (CanMove)
         {
             Vector3 direction = _targetWaypoint.position - transform.position;
-            transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+            transform.Translate(direction.normalized * CalculateCurrentSpeed() * Time.deltaTime, Space.World);
         }
     }
 
@@ -110,19 +110,24 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
         Destroy(gameObject);
     }
 
-    public virtual void TakeDamage(float amount) 
+    public virtual void TakeDamage(float amount, object source) 
     {
-        Debug.Log(this.enemyType + " took " + amount + " damage");
-
         health -= Mathf.RoundToInt(amount);
-
-        Debug.Log(this.enemyType + " has " + health + " health left");
 
         if (health <= 0)
         {
             health = 0;
             Defeat();
         }
+
+        Debug.Log("taking " + amount + " damage");
+    }
+
+    public virtual void Heal(float amount)
+    {
+        health = Mathf.Min(health + Mathf.RoundToInt(amount), maxHealth);
+
+        Debug.Log("Healing... current health: " + health);
     }
 
     protected virtual void Defeat()
@@ -195,18 +200,18 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
         }
     }
 
-    public virtual float Slow(float decreaseRatio, EffectMagicSchool magicSchool)
-    {
-        float decreasedAmount = 0;
+    //public virtual float Slow(float decreaseRatio, EffectMagicSchool magicSchool)
+    //{
+    //    float decreasedAmount = 0;
 
-        if (decreaseRatio >= 0 && decreaseRatio <= 1)
-        {
-            decreasedAmount = speed * decreaseRatio;
-            speed -= decreasedAmount;
-        }
+    //    if (decreaseRatio >= 0 && decreaseRatio <= 1)
+    //    {
+    //        decreasedAmount = speed * decreaseRatio;
+    //        speed -= decreasedAmount;
+    //    }
 
-        return decreasedAmount;
-    }
+    //    return decreasedAmount;
+    //}
 
     public virtual void Stun(EffectMagicSchool magicSchool)
     {
@@ -220,25 +225,80 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
         CanMove = true;
     }
 
-    public virtual float BuffSpeed(float increaseAmount)
-    {
-        if (increaseAmount >= 0)
-        {
-            speed += increaseAmount;
-            return increaseAmount;
-        } else
-        {
-            return 0;
-        }
-    }
+    //public virtual float BuffSpeed(float increaseAmount)
+    //{
+    //    if (increaseAmount >= 0)
+    //    {
+    //        speed += increaseAmount;
+    //        return increaseAmount;
+    //    } else
+    //    {
+    //        return 0;
+    //    }
+    //}
 
-    public virtual void SetSpeed(float speed)
-    {
-        this.speed = speed;
-    }
+    //public virtual void SetSpeed(float speed)
+    //{
+    //    this.speed = speed;
+    //}
 
     public virtual void SetAnimation(string animationName)
     {
         animator.Play(animationName);
+    }
+
+    protected List<SlowEffect> getAllActiveSlowEffects()
+    {
+        return _activeEffects
+            .Where(e => e.Data is SlowEffect)
+            .Select(e => (SlowEffect)e.Data)
+            .ToList();
+    }
+
+    protected List<MovementSpeedBuffEffect> getAllActiveMovementSpeedBuffEffects()
+    {
+        return _activeEffects
+            .Where(e => e.Data is MovementSpeedBuffEffect)
+            .Select(e => (MovementSpeedBuffEffect)e.Data)
+            .ToList();
+    }
+
+
+    protected virtual float CalculateSpeedAfterBuffs()
+    {
+        float speedAfterEffects = speed;
+
+        var speedEffects = getAllActiveMovementSpeedBuffEffects();
+
+        foreach (var effect in speedEffects)
+        {
+            speedAfterEffects += effect.increaseValue;
+        }
+
+        return speedAfterEffects;
+    }
+
+
+
+    protected virtual float CalculateSpeedAfterDebuffs(float currentSpeed)
+    {
+        float speedAfterEffects = currentSpeed;
+
+        var slowEffects = getAllActiveSlowEffects();
+
+        foreach (var effect in slowEffects)
+        {
+            speedAfterEffects -= (speedAfterEffects * effect.decreaseRatio);
+        }
+
+        return speedAfterEffects;
+    }
+
+    protected virtual float CalculateCurrentSpeed()
+    {
+        float speedAfterBuffs = CalculateSpeedAfterBuffs();
+        float speedAfterEffects = CalculateSpeedAfterDebuffs(speedAfterBuffs);
+
+        return speedAfterEffects;
     }
 }

@@ -111,11 +111,17 @@ public class WaveManager
     {
         if (!active || finished) { return; }
         RewardForLevelSkip();
-        NextLevel();
+        //NextLevel();
     }
 
     private void RewardForLevelSkip()
     {
+        List<LevelEvent> remainingLevelEvents = getRemainingLevelEvents();
+
+        foreach (var levelEvent in remainingLevelEvents)
+        {
+            Debug.Log(levelEvent);
+        }
     }
 
 
@@ -194,5 +200,15 @@ public class WaveManager
 
     }
 
+    private List<LevelEvent> getRemainingLevelEvents()
+    {
+        List<LevelEvent> remainingLevelEvents = new List<LevelEvent>();
 
+        foreach (var scenarioRunner in scenarioRunners)
+        {
+            remainingLevelEvents.AddRange(scenarioRunner.getRemainingEvents());
+        }
+
+        return remainingLevelEvents;
+    }
 }

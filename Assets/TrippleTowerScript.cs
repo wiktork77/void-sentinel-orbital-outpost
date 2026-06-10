@@ -1,5 +1,6 @@
-using UnityEngine;
 using System;
+using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class TripleTowerScript : TowerScript
 {
@@ -25,6 +26,10 @@ public class TripleTowerScript : TowerScript
     {
         // 1. Czyścimy listę z martwych wrogów (tak jak w bazie)
         targetsInRange.RemoveAll(t => t == null);
+        TickEffects();
+
+        _reloadProgress += Time.deltaTime / CalculateReloadTimeAfterDebuffs();
+        _reloadProgress = Mathf.Clamp01(_reloadProgress);
 
         if (targetsInRange.Count > 0)
         {
@@ -39,14 +44,10 @@ public class TripleTowerScript : TowerScript
             RotateTowardsTarget(currentRandomTarget);
 
             // 4. Strzelamy, jeśli minął czas przeładowania
-            if (Time.time >= nextFireTime)
+            if (_reloadProgress >= 1f)
             {
                 Shoot(currentRandomTarget);
-                nextFireTime = Time.time + reloadTime;
-
-                // OPCJONALNIE: Odkomentuj linijkę niżej, jeśli chcesz, żeby wieża 
-                // PO KAŻDYM STRZALE losowała nowego wroga (całkowity chaos i rozrzut!)
-                // currentRandomTarget = null; 
+                _reloadProgress = 0f;
             }
         }
         else
@@ -88,7 +89,7 @@ public class TripleTowerScript : TowerScript
         if (projectile != null)
         {
             projectile.OnHit += OnProjectileHit;
-            projectile.Setup(target, damage); 
+            projectile.Setup(target, damage, this);
         }
     }
 }

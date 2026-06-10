@@ -17,6 +17,6 @@ public class BurnEffect : Effect<EnemyScript>
 
     public override void OnTick(EnemyScript target, float deltaTime)
     {
-        target.TakeDamage(burnDamage);
+        target.TakeDamage(burnDamage, this);
     }
 }

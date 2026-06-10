@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2091240005829143112}
   - component: {fileID: 102768329004362234}
+  - component: {fileID: 381539355671801047}
   m_Layer: 6
   m_Name: SwarmDetector
   m_TagString: Enemy
@@ -67,7 +68,19 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 5
+  m_Radius: 7
+--- !u!114 &381539355671801047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4264528858354989744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 896ae8c9c81dbe543a906a2fd3339c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScarabSwarmDetector
 --- !u!1 &7464608448650086265
 GameObject:
   m_ObjectHideFlags: 0

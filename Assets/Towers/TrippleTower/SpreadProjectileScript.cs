@@ -21,7 +21,7 @@ public class SpreadProjectileScript : ProjectileScript
             hasHit = true;
 
             // 1. Zadajemy obrażenia temu, w kogo uderzyliśmy
-            hitEnemy.TakeDamage(damage); 
+            hitEnemy.TakeDamage(damage, owner); 
 
             // 2. Pobieramy efekty bezpośrednio z wieży lub przekazujemy je do FAKTYCZNEGO wroga
             // Szukamy komponentu wieży, która nas stworzyła (jeśli masz taką referencję)

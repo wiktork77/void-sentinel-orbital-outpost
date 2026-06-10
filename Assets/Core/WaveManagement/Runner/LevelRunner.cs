@@ -231,4 +231,16 @@ public class LevelRunner {
             return;
         }
     }
+
+    public List<LevelEvent> GetAllRemainingEvents()
+    {
+        List<LevelEvent> remainingEvents = new List<LevelEvent>();
+        
+        if (loadedAllEvents || nextEventIndex + 1 >= events.Count)
+        {
+            return remainingEvents;
+        }
+
+        return events.GetRange(nextEventIndex + 1, events.Count - nextEventIndex - 1);
+    }
 }

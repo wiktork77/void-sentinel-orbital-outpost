@@ -22,11 +22,15 @@ public class SlowAuraTower : TowerScript
         // 1. Czyścimy listę z martwych wrogów (metoda z klasy bazowej)
         targetsInRange.RemoveAll(t => t == null);
 
+        _reloadProgress += Time.deltaTime / CalculateReloadTimeAfterDebuffs();
+        _reloadProgress = Mathf.Clamp01(_reloadProgress);
+
         // 2. Co sekundę (reloadTime) nakładamy efekt na wszystkich w zasięgu
-        if (Time.time >= nextFireTime)
+
+        if (_reloadProgress >= 1f)
         {
             ApplySlowToAll();
-            nextFireTime = Time.time + reloadTime;
+            _reloadProgress = 0f;
         }
     }
 

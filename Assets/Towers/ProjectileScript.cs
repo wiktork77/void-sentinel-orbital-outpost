@@ -10,10 +10,14 @@ public class ProjectileScript : MonoBehaviour
 
     public Action OnHit;
 
-    public void Setup(EnemyScript _target, float _damage)
+    public TowerScript owner;
+
+    public void Setup(EnemyScript _target, float _damage, TowerScript owner)
     {
         target = _target;
         damage = _damage;
+        
+        this.owner = owner;
     }
 
     protected virtual void Update()
@@ -44,7 +48,7 @@ public class ProjectileScript : MonoBehaviour
     if (target != null)
     {
         // Wywołujemy funkcję TakeDamage z EnemyScript
-        target.TakeDamage(damage);
+        target.TakeDamage(damage, owner);
         OnHit?.Invoke();
         
         // Opcjonalnie: Debug, żebyś widział w konsoli, że pocisk "uderzył"

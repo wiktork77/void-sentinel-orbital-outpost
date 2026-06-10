@@ -38,7 +38,7 @@ public class LaserBoltScript : TowerScript
                 reloadTime = originalReloadTime;
                 fullPowerCounter = 0;
 
-                nextFireTime = Time.time;
+                _reloadProgress = 1f;
             }
             return;
         }

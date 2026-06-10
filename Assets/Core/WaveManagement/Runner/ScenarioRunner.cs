@@ -141,4 +141,16 @@ public class ScenarioRunner
         }
     }
 
+    public List<LevelEvent> getRemainingEvents()
+    {
+        List<LevelEvent> remainingEvents = new List<LevelEvent>();
+
+        foreach (var levelRunner in activeLevelRunners.Values)
+        {
+            remainingEvents.AddRange(levelRunner.GetAllRemainingEvents());
+        }
+
+        return remainingEvents;
+    }
+
 }

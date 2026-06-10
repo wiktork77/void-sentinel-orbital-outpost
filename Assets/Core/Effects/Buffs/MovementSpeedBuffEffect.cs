@@ -9,14 +9,14 @@ public class MovementSpeedBuffEffect : Effect<EnemyScript>
 
     public override Action<EnemyScript> OnApply(EnemyScript target)
     {
-        float increasedAmount = target.BuffSpeed(increaseValue);
+        //float increasedAmount = target.BuffSpeed(increaseValue);
 
         return (enemy) =>
         {
-            float currentSpeed = enemy.Speed;
-            float desiredSpeed = currentSpeed - increaseValue;
+            //float currentSpeed = enemy.Speed;
+            //float desiredSpeed = currentSpeed - increaseValue;
 
-            enemy.SetSpeed(desiredSpeed);
+            //enemy.SetSpeed(desiredSpeed);
         };
     }
 
