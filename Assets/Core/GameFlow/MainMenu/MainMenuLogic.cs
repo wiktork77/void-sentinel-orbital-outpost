@@ -12,6 +12,8 @@ public class MainMenuLogic : MonoBehaviour
     public GameObject enemiesPanel;
     public GameObject mapsPanel;
 
+    public GameObject chooseCampaignPanel;
+
     public List<GameObject> allPanels;
 
     private void Start()
@@ -24,7 +26,8 @@ public class MainMenuLogic : MonoBehaviour
             knowledgeBaseChoicePanel,
             arsenalPanel,
             enemiesPanel,
-            mapsPanel
+            mapsPanel,
+            chooseCampaignPanel
         };
     }
 
@@ -56,6 +59,11 @@ public class MainMenuLogic : MonoBehaviour
     public void OpenMapsPanel()
     {
         TogglePanels(mapsPanel);
+    }
+
+    public void OpenChooseCampaignPanel()
+    {
+        TogglePanels(chooseCampaignPanel);
     }
 
     private void TogglePanels(GameObject panelToActivate)

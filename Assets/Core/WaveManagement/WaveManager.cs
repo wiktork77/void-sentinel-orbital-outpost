@@ -36,6 +36,8 @@ public class WaveManager
     private const int ACTIVE_EVENT_FAST_FORWARD_BONUS = 5;
     private const float REMAINING_LEVEL_EVENT_FAST_FORWARD_BONUS_LOOT_MULTIPLIER = 0.4f;
 
+    public MapType map;
+
     public WaveManager(List<PredefinedScenario> scenarios, EnemyRegistrySO registry)
     {
         scenarioList = scenarios.Select(s => s.getScenario()).ToList();
@@ -209,6 +211,8 @@ public class WaveManager
         Debug.Log("Wave manager finished!");
 
         _OnWaveManagerFinished?.Invoke();
+
+        GlobalGameState.completeMap(map);
     }
 
     public void Stop()

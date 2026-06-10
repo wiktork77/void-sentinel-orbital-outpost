@@ -338,9 +338,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1539220731}
         m_TargetAssemblyTypeName: MapLogicScript, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: NextLevelOnDemand
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26615,9 +26615,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MapLogicScript, Assembly-CSharp
-        m_MethodName: PlayAgain
+      - m_Target: {fileID: 1325836066}
+        m_TargetAssemblyTypeName: ScenesTransitionManager, Assembly-CSharp
+        m_MethodName: ReloadActiveScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28207,9 +28207,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MapLogicScript, Assembly-CSharp
-        m_MethodName: Quit
+      - m_Target: {fileID: 1325836066}
+        m_TargetAssemblyTypeName: ScenesTransitionManager, Assembly-CSharp
+        m_MethodName: TransitionToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
