@@ -18,7 +18,7 @@ public class GlaciesInitialValues : MapInitialValues
 {
     public override int InitialHealth => 70;
 
-    public override int InitialCurrency => 750;
+    public override int InitialCurrency => 1000;
 }
 
 public class XenoJungleInitialValues : MapInitialValues

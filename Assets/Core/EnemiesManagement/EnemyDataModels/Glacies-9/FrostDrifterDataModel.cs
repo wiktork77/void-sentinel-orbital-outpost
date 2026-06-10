@@ -8,7 +8,7 @@ public class FrostDrifterDataModel : EnemyDataModel
 
     public override int MaxHealth => 65;
 
-    public override int Loot => 10;
+    public override int Loot => 30;
 
     public override int DamageToBase => 7;
 

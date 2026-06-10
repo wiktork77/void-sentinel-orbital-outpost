@@ -134,11 +134,11 @@ public class PlacementManager : MonoBehaviour
         shopPanel.SetActive(!isActive);
 
         // OPCJONALNIE: Jeśli zamykasz sklep, a masz "ducha" wieży przy myszce, usuń go
-        if (isActive && ghost != null) 
-        {
-            Destroy(ghost);
-            currentTowerDataModel = null;
-        }
+        // if (isActive && ghost != null) 
+        // {
+        //     Destroy(ghost);
+        //     currentTowerDataModel = null;
+        // }
     }
 }
 

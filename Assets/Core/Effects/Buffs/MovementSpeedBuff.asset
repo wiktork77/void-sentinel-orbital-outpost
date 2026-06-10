@@ -18,5 +18,6 @@ MonoBehaviour:
   isPermanent: 1
   isStackable: 1
   isPeriodic: 0
+  applyChance: 1
   magicSchool: 0
-  increaseValue: 1
+  increaseValue: 0.5
