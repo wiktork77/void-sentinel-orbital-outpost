@@ -7,7 +7,7 @@ public class ScarabDroneDataModel : EnemyDataModel
 {
     public override string Name => "Scarab Drone";
 
-    public override string Description => temporaryDescription;
+    public override string Description => "Podstawowa biomechaniczna jednostka zwiadowcza, wysy³ana na pole bitwy w masowych chmarach. Choæ pojedynczy dron posiada znikom¹ wartoœæ bojow¹, ich prymitywny algorytm sieciowy sprawia, ¿e poruszaj¹ siê szybciej, gdy atakuj¹ w wiêkszej grupie. Idealny cel dla laserów o wysokiej czêstotliwoœci oraz systemów kontroli t³umu.";
 
     public override int MaxHealth => 40;
 

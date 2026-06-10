@@ -14,7 +14,7 @@ public class AresDemoScenario1 : PredefinedScenario
             levels[i] = new Level();
         }
 
-        levels[1].AddEnemies(EnemyType.SCRAP_TITAN, 1, 1f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        levels[1].AddEnemies(EnemyType.SCARAB_DRONE, 10, 1f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
 
         //levels[3].AddEnemies(EnemyType.SCARAB_DRONE, 10, 0.5f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
 

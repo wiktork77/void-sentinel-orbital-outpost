@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class LaserBoltScript : TowerScript
 {
+    private const float COOLDOWN_TIME = 4F;
+
     private float originalReloadTime;
     private float reloadTimeDecreaseRatio = 0.85f;
-    private float reloadTimeThreshold = 0.1f;
-    private int amountOfShootsAtFullPower = 10;
+    private float reloadTimeThreshold = 0.10f;
+    private int amountOfShootsAtFullPower = 20;
 
     private bool fullPowerMode = false;
     private bool cooldownMode = false;
@@ -66,7 +68,7 @@ public class LaserBoltScript : TowerScript
             {
                 fullPowerMode = false;
                 cooldownMode = true;
-                cooldownTime = 5f;
+                cooldownTime = COOLDOWN_TIME;
             }
         }
     }

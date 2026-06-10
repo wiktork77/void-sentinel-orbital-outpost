@@ -5,7 +5,7 @@ public class TripleTowerScript : TowerScript
 {
     [Header("Triple Shot Settings")]
     [Range(5f, 30f)]
-    public float spreadAngle = 15f;
+    public float spreadAngle = 20f;
 
     // Przechowujemy aktualnie namierzonego losowego wroga
     private EnemyScript currentRandomTarget;

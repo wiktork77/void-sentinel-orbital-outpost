@@ -180,7 +180,7 @@ MonoBehaviour:
   partToRotate: {fileID: 6642877551993926842}
   rotationOffset: -90
   effectsToApply: []
-  spreadAngle: 15
+  spreadAngle: 20
 --- !u!1 &7508174719773015956
 GameObject:
   m_ObjectHideFlags: 0

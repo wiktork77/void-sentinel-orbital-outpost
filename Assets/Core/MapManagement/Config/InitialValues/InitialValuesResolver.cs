@@ -12,6 +12,9 @@ public class InitialValuesResolver
             case MapType.GLACIES_X:
                 return new GlaciesInitialValues();
 
+            case MapType.XENO_JUNGLE:
+                return new XenoJungleInitialValues();
+
             case MapType.GODMODE:
                 return new GodModeInitialValues();
 

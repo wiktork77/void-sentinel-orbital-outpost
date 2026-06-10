@@ -16,4 +16,9 @@ public class ScarabDroneEnemyScript : EnemyScript
     {
         base.Update();
     }
+
+    public void OnSwarmChanged(int swarmSize)
+    {
+        Debug.Log($"[Swarm] {gameObject.name} — allies nearby: {swarmSize}");
+    }
 }

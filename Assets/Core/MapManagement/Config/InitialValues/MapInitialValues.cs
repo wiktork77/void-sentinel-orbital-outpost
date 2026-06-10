@@ -21,6 +21,13 @@ public class GlaciesInitialValues : MapInitialValues
     public override int InitialCurrency => 750;
 }
 
+public class XenoJungleInitialValues : MapInitialValues
+{
+    public override int InitialHealth => 100;
+
+    public override int InitialCurrency => 1000;
+}
+
 
 public class GodModeInitialValues : MapInitialValues
 {
