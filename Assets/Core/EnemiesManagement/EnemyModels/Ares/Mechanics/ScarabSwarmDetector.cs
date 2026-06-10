@@ -1,16 +1,31 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ScarabSwarmDetector : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private readonly HashSet<ScarabDroneEnemyScript> _nearbyAllies = new();
+    private ScarabDroneEnemyScript _owner;
+
+    private void Awake()
     {
-        
+        _owner = GetComponentInParent<ScarabDroneEnemyScript>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.TryGetComponent<ScarabDroneEnemyScript>(out var ally) && ally != _owner)
+        {
+            _nearbyAllies.Add(ally);
+            _owner.OnSwarmChanged(_nearbyAllies.Count);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.TryGetComponent<ScarabDroneEnemyScript>(out var ally))
+        {
+            _nearbyAllies.Remove(ally);
+            _owner.OnSwarmChanged(_nearbyAllies.Count);
+        }
     }
 }
