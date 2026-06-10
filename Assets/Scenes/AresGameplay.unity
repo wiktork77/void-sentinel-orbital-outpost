@@ -2311,6 +2311,7 @@ MonoBehaviour:
   timeToNextLevelText: {fileID: 354525132}
   gameOverScreen: {fileID: 760921397}
   gameWonScreen: {fileID: 1358788523}
+  ManageWavesGO: {fileID: 1849848798}
   StartWavesButton: {fileID: 374029492}
   FastForwardWaveButton: {fileID: 189168650}
 --- !u!114 &418355816

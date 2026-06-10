@@ -42,7 +42,8 @@ public class MapLogicScript : MonoBehaviour
         waveManager._OnEnemyReachEnd += TakeDamageFromEnemy;
         waveManager._OnNextLevelAutomatic += OnNextLevelAutomatic;
         waveManager._OnWaveManagerFinished += OnWaveManagerFinished;
-        waveManager._OnLoadedLastLevel = OnLoadedLastLevel;
+        waveManager._OnLoadedLastLevel += OnLoadedLastLevel;
+        waveManager._OnNextLevelOnDemand += AddBonusCurrency;
 
         waveManager.SetupScenarioRunners();
 
@@ -100,6 +101,11 @@ public class MapLogicScript : MonoBehaviour
     public void LootDefeatedEnemy(EnemyScript enemy)
     {
         addCurrency(enemy.CurrencyLoot);
+    }
+
+    public virtual void AddBonusCurrency(int bonusCurrency)
+    {
+        addCurrency(bonusCurrency);
     }
 
     public void TakeDamageFromEnemy(EnemyScript enemy)

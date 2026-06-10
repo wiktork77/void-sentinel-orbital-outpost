@@ -8,11 +8,17 @@ public class ScenesTransitionManager : MonoBehaviour
         SceneManager.LoadScene(GameScenes.MainMenu);
     }
 
-    public static void TransitionOnStartGameButtonPress()
+    public static void StartAres()
     {
         // temporary, later should transition to campaign scene
         SceneManager.LoadScene(GameScenes.Ares);
     }
+
+    public static void StartGlacies()
+    {
+        SceneManager.LoadScene(GameScenes.Glacies);
+    }
+
     public static void ReloadActiveScene()
     {
         Scene activeScene = SceneManager.GetActiveScene();
