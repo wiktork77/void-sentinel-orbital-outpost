@@ -7,11 +7,11 @@ public class ScarabDroneDataModel : EnemyDataModel
 {
     public override string Name => "Scarab Drone";
 
-    public override string Description => "Podstawowa biomechaniczna jednostka zwiadowcza, wysy³ana na pole bitwy w masowych chmarach. Choæ pojedynczy dron posiada znikom¹ wartoœæ bojow¹, ich prymitywny algorytm sieciowy sprawia, ¿e poruszaj¹ siê szybciej, i przyjmuj¹ zredukowane obra¿enia gdy atakuj¹ w wiêkszej grupie.";
+    public override string Description => "Podstawowa biomechaniczna jednostka zwiadowcza, wysyï¿½ana na pole bitwy w masowych chmarach. Choï¿½ pojedynczy dron posiada znikomï¿½ wartoï¿½ï¿½ bojowï¿½, ich prymitywny algorytm sieciowy sprawia, ï¿½e poruszajï¿½ siï¿½ szybciej, i przyjmujï¿½ zredukowane obraï¿½enia gdy atakujï¿½ w wiï¿½kszej grupie.";
 
     public override int MaxHealth => 40;
 
-    public override int Loot => 5;
+    public override int Loot => 10;
 
     public override int DamageToBase => 1;
 

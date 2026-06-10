@@ -4,7 +4,7 @@ public class CryoColossusDataModel : EnemyDataModel
 {
     public override string Name => "Cryo Colossus";
 
-    public override string Description => "Potê¿ny tytan zmarzliny, posiadaj¹cy 35% odpornoœci na spowolnienia od ch³odu. Ka¿da wie¿a, która odwa¿y siê go zaatakowaæ, zostaje natychmiast zmro¿ona, co zwiêksza jej czas prze³adowania o 150% na 5 sekund.";
+    public override string Description => "Potï¿½ny tytan zmarzliny, posiadajï¿½cy 35% odpornoï¿½ci na spowolnienia od chï¿½odu. Kaï¿½da wieï¿½a, ktï¿½ra odwaï¿½y siï¿½ go zaatakowaï¿½, zostaje natychmiast zmroï¿½ona, co zwiï¿½ksza jej czas przeï¿½adowania o 150% na 5 sekund.";
 
     public override int MaxHealth => 550;
 

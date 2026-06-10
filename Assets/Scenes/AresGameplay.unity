@@ -2311,6 +2311,7 @@ MonoBehaviour:
   timeToNextLevelText: {fileID: 354525132}
   gameOverScreen: {fileID: 760921397}
   gameWonScreen: {fileID: 1358788523}
+  ManageWavesGO: {fileID: 0}
   StartWavesButton: {fileID: 374029492}
   FastForwardWaveButton: {fileID: 189168650}
 --- !u!114 &418355816
@@ -2325,10 +2326,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 959a25b01752d9647aa5672395b56d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapLogicScript
-  mapType: 3
+  mapType: 0
   enemyRegistry: {fileID: 11400000, guid: 027eaae072ae0b2408c9245baffa17d9, type: 2}
   scenarios:
   - {fileID: 11400000, guid: 37011d09af5aedb429de497bbf1eea15, type: 2}
+  - {fileID: 11400000, guid: 83821cd9d0bc51443aabf0b773eb5645, type: 2}
 --- !u!4 &418355817
 Transform:
   m_ObjectHideFlags: 0

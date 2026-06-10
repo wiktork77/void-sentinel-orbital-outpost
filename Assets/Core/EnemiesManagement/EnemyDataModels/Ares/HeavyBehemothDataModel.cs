@@ -4,11 +4,11 @@ public class HeavyBehemothDataModel : EnemyDataModel
 {
     public override string Name => "Heavy Behemoth";
 
-    public override string Description => "Przera¿aj¹cy biomechaniczny kolos, stworzony z myœl¹ o prze³amywaniu najciê¿szych linii obronnych. Posiada niesamowit¹ zdolnoœæ replikacji tkanek – jeœli nie otrzyma ¿adnych obra¿eñ przez 3.5 sekundy, jego rany natychmiast siê zasklepiaj¹, regeneruj¹c 50 HP co sekundê. Do jego eliminacji wymagany jest nieustanny, skoncentrowany ostrza³.";
+    public override string Description => "Przeraï¿½ajï¿½cy biomechaniczny kolos, stworzony z myï¿½lï¿½ o przeï¿½amywaniu najciï¿½szych linii obronnych. Posiada niesamowitï¿½ zdolnoï¿½ï¿½ replikacji tkanek ï¿½ jeï¿½li nie otrzyma ï¿½adnych obraï¿½eï¿½ przez 3.5 sekundy, jego rany natychmiast siï¿½ zasklepiajï¿½, regenerujï¿½c 50 HP co sekundï¿½. Do jego eliminacji wymagany jest nieustanny, skoncentrowany ostrzaï¿½.";
 
     public override int MaxHealth => 500;
 
-    public override int Loot => 50;
+    public override int Loot => 70;
 
     public override int DamageToBase => 10;
 

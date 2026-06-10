@@ -4,11 +4,11 @@ public class IceCrawlerDataModel : EnemyDataModel
 {
     public override string Name => "Ice Crawler";
 
-    public override string Description => "Pradawny, opancerzony stawonóg, ca³kowicie przystosowany do skrajnych mrozów. Wykazuje a¿ 95% odpornoœci na spowolnienia ch³odem, a ka¿de przejœcie przez pole lodu na mapie permanentnie zwiêksza jego prêdkoœæ. Nale¿y eliminowaæ go za pomoc¹ wie¿ fizycznych lub energetycznych, zanim zbytnio siê rozpêdzi.";
+    public override string Description => "Pradawny, opancerzony stawonï¿½g, caï¿½kowicie przystosowany do skrajnych mrozï¿½w. Wykazuje aï¿½ 95% odpornoï¿½ci na spowolnienia chï¿½odem, a kaï¿½de przejï¿½cie przez pole lodu na mapie permanentnie zwiï¿½ksza jego prï¿½dkoï¿½ï¿½. Naleï¿½y eliminowaï¿½ go za pomocï¿½ wieï¿½ fizycznych lub energetycznych, zanim zbytnio siï¿½ rozpï¿½dzi.";
 
     public override int MaxHealth => 350;
 
-    public override int Loot => 25;
+    public override int Loot => 35;
 
     public override int DamageToBase => 10;
 

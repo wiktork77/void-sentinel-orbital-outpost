@@ -9,25 +9,75 @@ public class AresDemoScenario1 : PredefinedScenario
     {
         var levels = new Dictionary<int, Level>();
 
-        for (int i = 1; i < 11; i++)
+        // for (int i = 1; i < 11; i++)
+        // {
+        //     levels[i] = new Level();
+        // }
+
+
+
+        // for (int i = 1; i < 5; i++)
+        // {
+        //     levels[i].AddEnemies(EnemyType.SCARAB_DRONE, 2, 1f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+
+        //     levels[i].AddEnemies(EnemyType.RUST_WALKER, 2, 1f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+
+        //     levels[i].AddEnemies(EnemyType.HEAVY_BEHEMOTH, 2, 1f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+
+        //     levels[i].AddEnemies(EnemyType.FROST_DRIFTER, 2, 1f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+
+        //     levels[i].AddEnemies(EnemyType.SCRAP_TITAN, 2, 1f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        // }
+
+        for (int i = 1; i <= 10; i++)
         {
             levels[i] = new Level();
         }
 
+        levels[1].AddEnemies(EnemyType.SCARAB_DRONE, 6, 1.2f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
 
+        // Poziom 2 - drony + pierwsze Rust Walkery
+        levels[2].AddEnemies(EnemyType.SCARAB_DRONE, 4, 1.0f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+        // levels[2].AddEnemies(EnemyType.RUST_WALKER, 2, 2.0f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
 
-        for (int i = 1; i < 5; i++)
-        {
-            levels[i].AddEnemies(EnemyType.SCARAB_DRONE, 2, 1f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        levels[3].AddEnemies(EnemyType.SCARAB_DRONE, 6, 0.6f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        levels[3].AddEnemies(EnemyType.SCARAB_DRONE, 4, 0.6f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+        levels[3].AddEnemies(EnemyType.RUST_WALKER, 2, 1.5f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
 
-            levels[i].AddEnemies(EnemyType.RUST_WALKER, 2, 1f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        // Poziom 4 - Rust Walkery z dronami na obu ścieżkach
+        levels[4].AddEnemies(EnemyType.SCARAB_DRONE, 8, 0.5f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        levels[4].AddEnemies(EnemyType.RUST_WALKER, 4, 1.2f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
 
-            levels[i].AddEnemies(EnemyType.HEAVY_BEHEMOTH, 2, 1f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        // Poziom 5 - pierwsze Heavy Behemothy
+        levels[5].AddEnemies(EnemyType.SCARAB_DRONE, 10, 0.4f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+        // levels[5].AddEnemies(EnemyType.RUST_WALKER, 4, 1.0f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+        // levels[5].AddEnemies(EnemyType.HEAVY_BEHEMOTH, 2, 3.0f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
 
-            levels[i].AddEnemies(EnemyType.FROST_DRIFTER, 2, 1f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        // Poziom 6 - mix wszystkiego na obu ścieżkach
+        levels[6].AddEnemies(EnemyType.SCARAB_DRONE, 10, 0.4f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+        levels[6].AddEnemies(EnemyType.RUST_WALKER, 3, 0.8f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        // levels[6].AddEnemies(EnemyType.HEAVY_BEHEMOTH, 3, 2.5f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        // levels[6].AddEnemies(EnemyType.HEAVY_BEHEMOTH, 2, 2.5f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
 
-            levels[i].AddEnemies(EnemyType.SCRAP_TITAN, 2, 1f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
-        }
+        // Poziom 7 - Frost Driftery wchodzą do gry
+        levels[7].AddEnemies(EnemyType.SCARAB_DRONE, 12, 0.3f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        // levels[7].AddEnemies(EnemyType.HEAVY_BEHEMOTH, 4, 2.0f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        // levels[7].AddEnemies(EnemyType.RUST_WALKER, 5, 0.7f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+
+        // Poziom 8 - chaos na obu ścieżkach
+        levels[8].AddEnemies(EnemyType.SCARAB_DRONE, 15, 0.3f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+        // levels[8].AddEnemies(EnemyType.HEAVY_BEHEMOTH, 5, 1.8f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        // levels[8].AddEnemies(EnemyType.RUST_WALKER, 8, 0.6f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+
+        // // Poziom 9 - przedostatni, wszystkie typy naraz
+        levels[9].AddEnemies(EnemyType.SCARAB_DRONE, 15, 0.25f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        levels[9].AddEnemies(EnemyType.SCARAB_DRONE, 10, 0.25f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+        levels[9].AddEnemies(EnemyType.RUST_WALKER, 6, 0.7f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        // levels[9].AddEnemies(EnemyType.FROST_DRIFTER, 6, 1.0f, WaypointsConstants.WaypointRoute.ARES_SPECIAL);
+        // levels[9].AddEnemies(EnemyType.HEAVY_BEHEMOTH, 6, 1.5f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+
+        // Poziom 10 - BOSS: tylko 1 Scrap Titan
+        levels[10].AddEnemies(EnemyType.SCRAP_TITAN, 1, 1f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
 
 
 

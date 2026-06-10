@@ -4,11 +4,11 @@ public class FrostDrifterDataModel : EnemyDataModel
 {
     public override string Name => "Frost Drifter";
 
-    public override string Description => "Ulotna i niezwykle agresywna manifestacja skondensowanej energii kriogenicznej, która potrafi b³yskawicznie przemieszczaæ siê po polu bitwy. Poniewa¿ jego struktura sk³ada siê z czystego lodu, byt ten wykazuje 65% odpornoœci na spowolnienia wywo³ane ch³odem. Zwyk³e wie¿e mro¿¹ce nie zdo³aj¹ go powstrzymaæ przed zadaniem potê¿nych uszkodzeñ strukturze bazy.";
+    public override string Description => "Ulotna i niezwykle agresywna manifestacja skondensowanej energii kriogenicznej, ktï¿½ra potrafi bï¿½yskawicznie przemieszczaï¿½ siï¿½ po polu bitwy. Poniewaï¿½ jego struktura skï¿½ada siï¿½ z czystego lodu, byt ten wykazuje 65% odpornoï¿½ci na spowolnienia wywoï¿½ane chï¿½odem. Zwykï¿½e wieï¿½e mroï¿½ï¿½ce nie zdoï¿½ajï¿½ go powstrzymaï¿½ przed zadaniem potï¿½nych uszkodzeï¿½ strukturze bazy.";
 
     public override int MaxHealth => 65;
 
-    public override int Loot => 5;
+    public override int Loot => 10;
 
     public override int DamageToBase => 7;
 

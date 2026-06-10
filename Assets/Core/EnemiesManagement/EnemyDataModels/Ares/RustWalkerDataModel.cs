@@ -4,11 +4,11 @@ public class RustWalkerDataModel : EnemyDataModel
 {
     public override string Name => "Rust Walker";
 
-    public override string Description => "Ciê¿ki, archaiczny automat górniczy, którego pancerz aktywuje systemy obronne przy ka¿dym otrzymanym trafieniu. Ka¿dy atak zwiêksza jego redukcjê obra¿eñ o 15% (maksymalnie do 80%). Zasypywanie go gradem drobnych pocisków jedynie utwardza jego pow³okê – do eliminacji wymagana jest niszczycielsko wysoka, pojedyncza si³a ra¿enia.";
+    public override string Description => "Ciï¿½ki, archaiczny automat gï¿½rniczy, ktï¿½rego pancerz aktywuje systemy obronne przy kaï¿½dym otrzymanym trafieniu. Kaï¿½dy atak zwiï¿½ksza jego redukcjï¿½ obraï¿½eï¿½ o 15% (maksymalnie do 80%). Zasypywanie go gradem drobnych pociskï¿½w jedynie utwardza jego powï¿½okï¿½ ï¿½ do eliminacji wymagana jest niszczycielsko wysoka, pojedyncza siï¿½a raï¿½enia.";
 
     public override int MaxHealth => 150;
 
-    public override int Loot => 20;
+    public override int Loot => 30;
 
     public override int DamageToBase => 3;
 

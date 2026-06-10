@@ -3,9 +3,9 @@ using UnityEngine;
 public class TripleTowerDataModel : TowerDataModel
 {
   public override string Name => "Triple Shot Tower";
-    public override string Description => "Wystrzeliwuje sto¿kow¹ salwê 3 pocisków na raz, rozdzielonych pod k¹tem 20 stopni. Z dystansu wie¿a doskonale czyœci grupy s³abszych jednostek, natomiast w walce na bliski zasiêg wszystkie pociski mog¹ uderzyæ w jeden cel, zadaj¹c mu zmasowane obra¿enia. Idealna broñ na zakrêty i w¹skie gard³a mapy.";
+    public override string Description => "Wystrzeliwuje stoï¿½kowï¿½ salwï¿½ 3 pociskï¿½w na raz, rozdzielonych pod kï¿½tem 20 stopni. Z dystansu wieï¿½a doskonale czyï¿½ci grupy sï¿½abszych jednostek, natomiast w walce na bliski zasiï¿½g wszystkie pociski mogï¿½ uderzyï¿½ w jeden cel, zadajï¿½c mu zmasowane obraï¿½enia. Idealna broï¿½ na zakrï¿½ty i wï¿½skie gardï¿½a mapy.";
     public override float Damage => 12f;
     public override float Range => 25f;
-    public override int Cost => 500;
+    public override int Cost => 400;
     public override float ReloadTime => 0.8f;
 }

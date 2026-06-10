@@ -3984,7 +3984,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &464715002
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5663,7 +5663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &650974876
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31094,7 +31094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1538873427
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31191,7 +31191,9 @@ MonoBehaviour:
   timeToNextLevelText: {fileID: 286254297}
   gameOverScreen: {fileID: 1205064553}
   gameWonScreen: {fileID: 549834826}
-  StartStopWavePanel: {fileID: 1538873426}
+  ManageWavesGO: {fileID: 1538873426}
+  StartWavesButton: {fileID: 1387043023}
+  FastForwardWaveButton: {fileID: 85658183}
 --- !u!114 &1539220731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31208,6 +31210,7 @@ MonoBehaviour:
   enemyRegistry: {fileID: 11400000, guid: 027eaae072ae0b2408c9245baffa17d9, type: 2}
   scenarios:
   - {fileID: 11400000, guid: 9ef46fe676dc51b4b81ee327cca9be57, type: 2}
+  - {fileID: 11400000, guid: d68f098892de443f88ab637881c062ac, type: 2}
 --- !u!4 &1539220732
 Transform:
   m_ObjectHideFlags: 0
