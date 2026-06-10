@@ -236,11 +236,16 @@ public class LevelRunner {
     {
         List<LevelEvent> remainingEvents = new List<LevelEvent>();
         
-        if (loadedAllEvents || nextEventIndex + 1 >= events.Count)
+        if (loadedAllEvents || nextEventIndex >= events.Count)
         {
             return remainingEvents;
         }
 
-        return events.GetRange(nextEventIndex + 1, events.Count - nextEventIndex - 1);
+        return events.GetRange(nextEventIndex, events.Count - nextEventIndex);
+    }
+
+    public int getActiveEventsCount()
+    {
+        return activeEvents;
     }
 }

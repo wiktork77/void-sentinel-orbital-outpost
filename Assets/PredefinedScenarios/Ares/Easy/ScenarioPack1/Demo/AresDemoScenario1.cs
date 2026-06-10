@@ -14,7 +14,23 @@ public class AresDemoScenario1 : PredefinedScenario
             levels[i] = new Level();
         }
 
-        levels[1].AddEnemies(EnemyType.CRYO_COLLOSSUS, 1, 1f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+
+
+        for (int i = 1; i < 5; i++)
+        {
+            levels[i].AddEnemies(EnemyType.SCARAB_DRONE, 2, 1f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+
+            levels[i].AddEnemies(EnemyType.RUST_WALKER, 2, 1f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+
+            levels[i].AddEnemies(EnemyType.HEAVY_BEHEMOTH, 2, 1f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+
+            levels[i].AddEnemies(EnemyType.FROST_DRIFTER, 2, 1f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+
+            levels[i].AddEnemies(EnemyType.SCRAP_TITAN, 2, 1f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
+        }
+
+
+
 
         //levels[3].AddEnemies(EnemyType.SCARAB_DRONE, 10, 0.5f, WaypointsConstants.WaypointRoute.ARES_DEFAULT);
 

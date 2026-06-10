@@ -120,14 +120,14 @@ public abstract class EnemyScript : MonoBehaviour, IEffectReceiver<EnemyScript>
             Defeat();
         }
 
-        Debug.Log("taking " + amount + " damage");
+        //Debug.Log("taking " + amount + " damage");
     }
 
     public virtual void Heal(float amount)
     {
         health = Mathf.Min(health + Mathf.RoundToInt(amount), maxHealth);
 
-        Debug.Log("Healing... current health: " + health);
+        //Debug.Log("Healing... current health: " + health);
     }
 
     protected virtual void Defeat()

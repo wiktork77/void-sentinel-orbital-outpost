@@ -26,7 +26,13 @@ public class MapUIController : MonoBehaviour
     private GameObject gameWonScreen;
 
     [SerializeField]
-    private GameObject StartStopWavePanel;
+    private GameObject ManageWavesGO;
+
+    [SerializeField]
+    private GameObject StartWavesButton;
+
+    [SerializeField]
+    private GameObject FastForwardWaveButton;
 
     private MapLogicScript mapLogic;
 
@@ -51,6 +57,7 @@ public class MapUIController : MonoBehaviour
         mapLogic.OnPlayAgain += PlayAgain;
         mapLogic.OnQuit += QuitToMainMenu;
         mapLogic.OnStartWaves += ManageStartStopWavePanelOnStart;
+        mapLogic.OnLoadedLastLevel += OnLoadedLastLevel;
     }
 
     void Update()
@@ -123,7 +130,14 @@ public class MapUIController : MonoBehaviour
 
     private void ManageStartStopWavePanelOnStart()
     {
-        StartStopWavePanel.SetActive(false);
+        StartWavesButton.SetActive(false);
+        FastForwardWaveButton.SetActive(true);
+    }
+
+    private void OnLoadedLastLevel()
+    {
+        FastForwardWaveButton.SetActive(false);
+        ManageWavesGO.SetActive(false);
     }
 
     private void ManageStartStopWavePanelOnPause()

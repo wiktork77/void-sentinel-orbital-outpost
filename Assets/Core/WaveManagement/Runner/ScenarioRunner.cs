@@ -153,4 +153,14 @@ public class ScenarioRunner
         return remainingEvents;
     }
 
+    public int getActiveEventsCount()
+    {
+        int activeEventsCount = 0;
+        foreach (var levelRunner in activeLevelRunners.Values)
+        {
+            activeEventsCount += levelRunner.getActiveEventsCount();
+        }
+
+        return activeEventsCount;
+    }
 }

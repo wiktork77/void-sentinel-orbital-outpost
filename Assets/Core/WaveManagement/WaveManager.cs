@@ -19,14 +19,22 @@ public class WaveManager
     private bool active = false;
     private bool finished = false;
 
+    private bool lastLevelLoaded = false;
+
     public int LastLevelNumber => lastLevelNumber;
 
     public Action<EnemyScript> _OnEnemyDefeated;
     public Action<EnemyScript> _OnEnemyReachEnd;
 
     public Action<int> _OnNextLevelAutomatic;
+    public Action<int> _OnNextLevelOnDemand;
 
     public Action _OnWaveManagerFinished;
+
+    public Action _OnLoadedLastLevel;
+
+    private const int ACTIVE_EVENT_FAST_FORWARD_BONUS = 5;
+    private const float REMAINING_LEVEL_EVENT_FAST_FORWARD_BONUS_LOOT_MULTIPLIER = 0.4f;
 
     public WaveManager(List<PredefinedScenario> scenarios, EnemyRegistrySO registry)
     {
@@ -93,8 +101,15 @@ public class WaveManager
 
     private void NextLevel()
     {
+        if (!active || finished || lastLevelLoaded) { return; }
+
         scenarioRunnersNotReadyForNextLevel = scenarioRunners.Count;
         currentLevelNumber++;
+
+        if (currentLevelNumber >= lastLevelNumber)
+        {
+            OnLoadedLastLevel();
+        }
 
         _OnNextLevelAutomatic?.Invoke(currentLevelNumber);
 
@@ -109,19 +124,21 @@ public class WaveManager
 
     public void NextLevelOnDemand()
     {
-        if (!active || finished) { return; }
-        RewardForLevelSkip();
-        //NextLevel();
+        if (!active || finished || lastLevelLoaded) { return; }
+
+        _OnNextLevelOnDemand?.Invoke(RewardForLevelSkip());
+        
+        NextLevel();
     }
 
-    private void RewardForLevelSkip()
+    private int RewardForLevelSkip()
     {
-        List<LevelEvent> remainingLevelEvents = getRemainingLevelEvents();
+        Debug.Log("Remaining: " + getBonusCurrencyForRemainingLevelEvents());
+        Debug.Log("Active: " + getBonusCurrencyForActiveEventsCount());
 
-        foreach (var levelEvent in remainingLevelEvents)
-        {
-            Debug.Log(levelEvent);
-        }
+        int bonus = getBonusCurrencyForRemainingLevelEvents() + getBonusCurrencyForActiveEventsCount();
+
+        return bonus;
     }
 
 
@@ -210,5 +227,44 @@ public class WaveManager
         }
 
         return remainingLevelEvents;
+    }
+
+    private int getActiveEventsCount()
+    {
+        int activeEventsCount = 0;
+        foreach (var scenarioRunner in scenarioRunners)
+        {
+            activeEventsCount += scenarioRunner.getActiveEventsCount();
+        }
+        
+        return activeEventsCount;
+    }
+
+    private int getBonusCurrencyForRemainingLevelEvents()
+    {
+        float bonus = 0;
+
+        List<LevelEvent> remainingLevelEvents = getRemainingLevelEvents();
+
+        foreach (var levelEvent in remainingLevelEvents)
+        {
+            EnemyDataModel dataModel = EnemyDataModelResolver.getEnemyDataModel(levelEvent.EnemyType);
+            float loot = dataModel.Loot;
+
+            bonus += REMAINING_LEVEL_EVENT_FAST_FORWARD_BONUS_LOOT_MULTIPLIER * loot;
+        }
+
+        return Mathf.CeilToInt(bonus);
+    }
+
+    private int getBonusCurrencyForActiveEventsCount()
+    {
+        return ACTIVE_EVENT_FAST_FORWARD_BONUS * getActiveEventsCount();
+    }
+
+    private void OnLoadedLastLevel()
+    {
+        lastLevelLoaded = true;
+        _OnLoadedLastLevel?.Invoke();
     }
 }

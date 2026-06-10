@@ -26,6 +26,8 @@ public class MapLogicScript : MonoBehaviour
     public Action OnStartWaves;
     public Action OnPauseWaves;
 
+    public Action OnLoadedLastLevel;
+
     private int health;
     private int currency;
 
@@ -40,6 +42,7 @@ public class MapLogicScript : MonoBehaviour
         waveManager._OnEnemyReachEnd += TakeDamageFromEnemy;
         waveManager._OnNextLevelAutomatic += OnNextLevelAutomatic;
         waveManager._OnWaveManagerFinished += OnWaveManagerFinished;
+        waveManager._OnLoadedLastLevel = OnLoadedLastLevel;
 
         waveManager.SetupScenarioRunners();
 
@@ -58,6 +61,11 @@ public class MapLogicScript : MonoBehaviour
     {
         OnStartWaves?.Invoke();
         waveManager.Start(1);
+    }
+
+    public virtual void NextLevelOnDemand()
+    {
+        waveManager.NextLevelOnDemand();
     }
     
     protected virtual void loseHealth(int amount)
@@ -135,11 +143,12 @@ public class MapLogicScript : MonoBehaviour
         OnNextLevel(level, waveManager.LastLevelNumber);
     }
 
-    private void OnNextLevelOnDemand(int level, int enemiesLeft)
-    {
-        // + additional bonus for skipping on demand, based on enemiesLeft - TBD
-        OnNextLevel(level, waveManager.LastLevelNumber);
-    }
+    //public void OnNextLevelOnDemand(int level, int enemiesLeft)
+    //{
+    //    // + additional bonus for skipping on demand, based on enemiesLeft - TBD
+    //    waveManager.NextLevelOnDemand();
+    //    //OnNextLevel(level, waveManager.LastLevelNumber);
+    //}
 
 
     private void OnNextLevel(int level, int lastLevel)
