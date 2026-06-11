@@ -69,13 +69,12 @@ public class GlaciesDefaultScenario : PredefinedScenario
         levels[13].AddEnemies(EnemyType.FROST_DRIFTER, 15, 0.2f, WaypointsConstants.WaypointRoute.GLACIES9_BOTTOM_FOUNTAIN);
         levels[13].AddEnemies(EnemyType.CRYO_COLLOSSUS, 5, 1.2f, WaypointsConstants.WaypointRoute.GLACIES9_TOP_RIGHT_LAKE);
 
-        // Poziom 14 - finalna fala
         levels[14].AddEnemies(EnemyType.ICE_CRAWLER, 8, 0.5f, WaypointsConstants.WaypointRoute.GLACIES9_DEFAULT);
         levels[14].AddEnemies(EnemyType.CRYO_COLLOSSUS, 4, 1.0f, WaypointsConstants.WaypointRoute.GLACIES9_TOP);
         levels[14].AddEnemies(EnemyType.ICE_CRAWLER, 3, 0.5f, WaypointsConstants.WaypointRoute.GLACIES9_BOTTOM_FOUNTAIN);
         levels[14].AddEnemies(EnemyType.FROST_DRIFTER, 25, 0.2f, WaypointsConstants.WaypointRoute.GLACIES9_TOP_RIGHT_LAKE);
 
-        levels[15].AddEnemies(EnemyType.SENTINEL_CORE_BOSS, 1, 1.0f, WaypointsConstants.WaypointRoute.GLACIES9_BOSS);
+        levels[15].AddEnemies(EnemyType.SENTINEL_CORE_BOSS, 1, 1.0f, WaypointsConstants.WaypointRoute.GLACIES9_DEFAULT);
 
         return new MapLevelsScenario(levels);
     }
