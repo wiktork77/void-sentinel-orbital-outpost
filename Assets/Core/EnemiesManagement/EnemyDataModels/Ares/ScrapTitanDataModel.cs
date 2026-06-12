@@ -4,7 +4,7 @@ public class ScrapTitanDataModel : EnemyDataModel
 {
     public override string Name => "Scrap Titan";
 
-    public override string Description => "Scrap Titan to potê¿na, krocz¹ca machina sklecona z ciê¿kiego z³omu i porzuconych pancerzy. Choæ porusza siê niezwykle œlamatarnie, nadrabia to ogromn¹ pul¹ zdrowia. Nie wolno pozwoliæ mu zbli¿yæ siê do celu – jego dotarcie do bazy oznacza natychmiastowy koniec gry. Pokonaj go, nim ukoñczy swój marsz!";
+    public override string Description => "Scrap Titan to potÄ™Å¼na, kroczÄ…ca machina sklecona z ciÄ™Å¼kiego zÅ‚omu i porzuconych pancerzy. ChoÄ‡ porusza siÄ™ niezwykle Å›lamazarnie, nadrabia to ogromnÄ… pulÄ… zdrowia. Nie wolno pozwoliÄ‡ mu zbliÅ¼yÄ‡ siÄ™ do celu â€“ jego dotarcie do bazy oznacza natychmiastowy koniec gry. Pokonaj go, nim ukoÅ„czy swÃ³j marsz!";
 
     public override int MaxHealth => 5000;
 

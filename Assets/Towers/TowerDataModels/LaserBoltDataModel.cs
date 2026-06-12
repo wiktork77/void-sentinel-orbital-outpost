@@ -4,7 +4,7 @@ public class LaserBoltDataModel : TowerDataModel
 {
     public override string Name => "Laser Bolt";
 
-    public override string Description => "Dzia�o laserowe dalekiego zasi�gu, kt�re drastycznie skraca czas prze�adowania z ka�dym kolejnym atakiem (maksymalnie do 0.1 sekundy). Na pe�nych obrotach uwalnia niszczycielsk� seri� 10 strza��w, automatycznie wywo�uj�c przeci��enie rdzenia. Wymusza to 5-sekundowy stan bezczynno�ci potrzebny na sch�odzenie emiter�w.";
+    public override string Description => "Działo laserowe dalekiego zasięgu, które drastycznie skraca czas przeładowania z każdym kolejnym atakiem (maksymalnie do 0.1 sekundy). Na pełnych obrotach uwalnia niszczycielską serię 10 strzałów, automatycznie wywołując przeciążenie rdzenia. Wymusza to 5-sekundowy stan bezczynności potrzebny na schłodzenie emiterów.";
 
     public override float Damage => 8;
 

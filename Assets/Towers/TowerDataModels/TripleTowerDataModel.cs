@@ -3,7 +3,7 @@ using UnityEngine;
 public class TripleTowerDataModel : TowerDataModel
 {
   public override string Name => "Triple Shot Tower";
-    public override string Description => "Wystrzeliwuje sto�kow� salw� 3 pocisk�w na raz, rozdzielonych pod k�tem 20 stopni. Z dystansu wie�a doskonale czy�ci grupy s�abszych jednostek, natomiast w walce na bliski zasi�g wszystkie pociski mog� uderzy� w jeden cel, zadaj�c mu zmasowane obra�enia. Idealna bro� na zakr�ty i w�skie gard�a mapy.";
+    public override string Description => "Wystrzeliwuje stożkową salwę 3 pocisków na raz, rozdzielonych pod kątem 20 stopni. Z dystansu wieża doskonale czyści grupy słabszych jednostek, natomiast w walce na bliski zasięg wszystkie pociski mogą uderzyć w jeden cel, zadając mu zmasowane obrażenia. Idealna broń na zakręty i wąskie gardła mapy.";
     public override float Damage => 12f;
     public override float Range => 25f;
     public override int Cost => 400;

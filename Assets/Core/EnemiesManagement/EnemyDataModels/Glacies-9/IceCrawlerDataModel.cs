@@ -4,7 +4,7 @@ public class IceCrawlerDataModel : EnemyDataModel
 {
     public override string Name => "Ice Crawler";
 
-    public override string Description => "Pradawny, opancerzony stawon�g, ca�kowicie przystosowany do skrajnych mroz�w. Wykazuje a� 95% odporno�ci na spowolnienia ch�odem, a ka�de przej�cie przez pole lodu na mapie permanentnie zwi�ksza jego pr�dko��. Nale�y eliminowa� go za pomoc� wie� fizycznych lub energetycznych, zanim zbytnio si� rozp�dzi.";
+    public override string Description => "Pradawny, opancerzony stawonóg, całkowicie przystosowany do skrajnych mrozów. Wykazuje aż 95% odporności na spowolnienia chłodem, a każde przejście przez pole lodu na mapie permanentnie zwiększa jego prędkość. Należy eliminować go za pomocą wież fizycznych lub energetycznych, zanim zbytnio się rozpędzi.";
 
     public override int MaxHealth => 350;
 

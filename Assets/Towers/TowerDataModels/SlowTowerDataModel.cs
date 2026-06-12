@@ -4,7 +4,7 @@ public class SlowTowerDataModel : TowerDataModel
 {
     public override string Name => "Slow Tower";
 
-    public override string Description => "Zaawansowany generator subatomowy, który manipuluje kinetyk¹ cz¹steczek w swoim otoczeniu. Wie¿a co 0.5 sekundy emituje potê¿ny impuls kriogeniczny, tworz¹c wokó³ siebie stabiln¹, kolist¹ strefê zerowej temperatury. Przeciwnicy wewn¹trz krêgu zostaj¹ spowolnieni o 50%, a parali¿uj¹ce zimno dzia³a na nich jeszcze przez 1.5 sekundy po ucieczce z mroŸnej strefy.";
+    public override string Description => "Zaawansowany generator subatomowy, ktÃ³ry manipuluje kinetykÄ… czÄ…steczek w swoim otoczeniu. WieÅ¼a co 0.5 sekundy emituje potÄ™Å¼ny impuls kriogeniczny, tworzÄ…c wokÃ³Å‚ siebie stabilnÄ…, kolistÄ… strefÄ™ zerowej temperatury. Przeciwnicy wewnÄ…trz krÄ™gu zostajÄ… spowolnieni o 50%, a paraliÅ¼ujÄ…ce zimno dziaÅ‚a na nich jeszcze przez 1.5 sekundy po ucieczce z mroÅºnej strefy.";
 
     public override float Damage => 0f;
 

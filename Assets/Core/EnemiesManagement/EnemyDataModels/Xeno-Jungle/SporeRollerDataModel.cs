@@ -4,7 +4,7 @@ public class SporeRollerDataModel : EnemyDataModel
 {
     public override string Name => "Spore Roller";
 
-    public override string Description => "Podstawowa bio-jednostka d¿ungli. Ten naturalny turlacz twardnieje podczas ruchu i jego prêdkoœæ wzrasta tym bardziej, im d³u¿sz¹ odleg³oœæ pokona, czerpi¹c pêd z w³asnych obrotów. Im póŸniej go zatrzymasz, tym trudniej bêdzie to zrobiæ.";
+    public override string Description => "Podstawowa bio-jednostka dÅ¼ungli. Ten naturalny turlacz twardnieje podczas ruchu i jego prÄ™dkoÅ›Ä‡ wzrasta tym bardziej, im dÅ‚uÅ¼szÄ… odlegÅ‚oÅ›Ä‡ pokona, czerpiÄ…c pÄ™d z wÅ‚asnych obrotÃ³w. Im pÃ³Åºniej go zatrzymasz, tym trudniej bÄ™dzie to zrobiÄ‡.";
 
     public override int MaxHealth => 75;
 

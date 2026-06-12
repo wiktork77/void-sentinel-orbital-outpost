@@ -4,7 +4,7 @@ public class SentinelCoreDataModel : EnemyDataModel
 {
     public override string Name => "Sentinel Core";
 
-    public override string Description => "Sentinel Core to staro�ytny kolos o pot�nej liczbie punkt�w �ycia. W przeciwie�stwie do innych boss�w, przemieszcza si� z umiarkowan� pr�dko�ci�. Zanim jednak uderzy w baz�, musi najpierw obej�� ca�� map� dooko�a. Wykorzystaj t� d�ug� tras�, aby zbi� jego zdrowie, zanim wywo�a natychmiastow� przegran�.";
+    public override string Description => "Sentinel Core to starożytny kolos o potężnej liczbie punktów życia. W przeciwieństwie do innych bossów, przemieszcza się z umiarkowaną prędkością. Zanim jednak uderzy w bazę, musi najpierw obejść całą mapę dookoła. Wykorzystaj tę długą trasę, aby zbić jego zdrowie, zanim wywoła natychmiastową przegraną.";
 
     public override int MaxHealth => 2000;
 

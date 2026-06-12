@@ -10,7 +10,7 @@ public class XenoJungleMapDataModel : MapDataModel
 
     public override int initialHealth => initialValues.InitialHealth;
 
-    public override string description => "Têtni¹ca ¿yciem, mroczna biosfera o neonowej kolorystyce, gdzie niebo zas³ania gêste sklepienie gigantycznych, drapie¿nych liœci. Drogi wij¹ siê poœród pulsuj¹cych zarodników i œwiec¹cej biomasy, a gêsta, fioletowa mg³a ogranicza widocznoœæ, sprawiaj¹c, ¿e metalowe laboratoria GRA wygl¹daj¹ jak obce cia³o w tym dzikim, organicznym œwiecie.";
+    public override string description => "TÄ™tniÄ…ca Å¼yciem, mroczna biosfera o neonowej kolorystyce, gdzie niebo zasÅ‚ania gÄ™ste sklepienie gigantycznych, drapieÅ¼nych liÅ›ci. Drogi wijÄ… siÄ™ poÅ›rÃ³d pulsujÄ…cych zarodnikÃ³w i Å›wiecÄ…cej biomasy, a gÄ™sta, fioletowa mgÅ‚a ogranicza widocznoÅ›Ä‡, sprawiajÄ…c, Å¼e metalowe laboratoria GRA wyglÄ…dajÄ… jak obce ciaÅ‚o w tym dzikim, organicznym Å›wiecie.";
 
     public override List<EnemyType> mapEnemies => new List<EnemyType> { EnemyType.SPORE_ROLLER, EnemyType.VIPER_ROOT, EnemyType.REGEN_BULB };
 

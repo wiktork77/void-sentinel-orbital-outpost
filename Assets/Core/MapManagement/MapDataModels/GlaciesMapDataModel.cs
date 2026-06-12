@@ -11,7 +11,7 @@ public class GlaciesMapDataModel : MapDataModel
 
     public override int initialHealth => initialValues.InitialHealth;
 
-    public override string description => "Surowy, b³êkitno-bia³y glob pokryty wieczn¹ zmarzlin¹ i gigantycznymi lodowcami, które lœni¹ pod wp³ywem s³abego œwiat³a odleg³ej gwiazdy. Powierzchniê planety przecinaj¹ krystaliczne, lustrzane œcie¿ki oraz szczeliny, z których wydobywa siê b³êkitna poœwiata emitowana przez ukryte g³êboko pod lodem z³o¿a energii.";
+    public override string description => "Surowy, bÅ‚Ä™kitno-biaÅ‚y glob pokryty wiecznÄ… zmarzlinÄ… i gigantycznymi lodowcami, ktÃ³re lÅ›niÄ… pod wpÅ‚ywem sÅ‚abego Å›wiatÅ‚a odlegÅ‚ej gwiazdy. PowierzchniÄ™ planety przecinajÄ… krystaliczne, lustrzane Å›cieÅ¼ki oraz szczeliny, z ktÃ³rych wydobywa siÄ™ bÅ‚Ä™kitna poÅ›wiata emitowana przez ukryte gÅ‚Ä™boko pod lodem zÅ‚oÅ¼a energii.";
 
     public override List<EnemyType> mapEnemies => new List<EnemyType> { EnemyType.FROST_DRIFTER, EnemyType.ICE_CRAWLER, EnemyType.CRYO_COLLOSSUS, EnemyType.SENTINEL_CORE_BOSS };
 }

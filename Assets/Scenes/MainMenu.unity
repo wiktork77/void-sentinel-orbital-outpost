@@ -22402,7 +22402,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 814816143}
         m_TargetAssemblyTypeName: MainMenuLogic, Assembly-CSharp
-        m_MethodName: OpenKnowledgeBaseChoicePanel
+        m_MethodName: GoBackToMainPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

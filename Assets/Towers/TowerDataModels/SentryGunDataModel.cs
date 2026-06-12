@@ -4,7 +4,7 @@ public class SentryGunDataModel : TowerDataModel
 {
     public override string Name => "Sentry Gun";
 
-    public override string Description => "Wielkokalibrowe dzia³o obronne, które wystrzeliwuje pociski o ogromnej masie kinetycznej. Choæ mechanizm prze³adowania wymaga 1.5 sekundy, potê¿na si³a uderzenia zadaje drastyczne obra¿enia na krótkim dystansie. Ka¿de trafienie ma 20% szansy na wywo³anie fali uderzeniowej, która og³usza cel na 0.5 sekundy.";
+    public override string Description => "Wielkokalibrowe dziaÅ‚o obronne, ktÃ³re wystrzeliwuje pociski o ogromnej masie kinetycznej. ChoÄ‡ mechanizm przeÅ‚adowania wymaga 1.5 sekundy, potÄ™Å¼na siÅ‚a uderzenia zadaje drastyczne obraÅ¼enia na krÃ³tkim dystansie. KaÅ¼de trafienie ma 20% szansy na wywoÅ‚anie fali uderzeniowej, ktÃ³ra ogÅ‚usza cel na 0.5 sekundy.";
 
     public override float Damage => 60f;
 
