@@ -12,6 +12,7 @@ public class PlacementManager : MonoBehaviour
 
     private GameObject ghost;
     public GameObject shopPanel;
+    public GameObject shopPanelInfo;
 
     public GameObject gameManager;
 
@@ -127,6 +128,7 @@ public class PlacementManager : MonoBehaviour
     }
     public void ToggleShop()
 {
+    shopPanelInfo.SetActive(false);
     if (shopPanel != null)
     {
         // Odwracamy stan aktywności: jeśli był włączony -> wyłącz, i na odwrót

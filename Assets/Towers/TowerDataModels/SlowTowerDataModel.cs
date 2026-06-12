@@ -12,5 +12,5 @@ public class SlowTowerDataModel : TowerDataModel
 
     public override int Cost => 300;
 
-    public override float ReloadTime => 0.5f;
+    public override float ReloadTime => 0.25f;
 }

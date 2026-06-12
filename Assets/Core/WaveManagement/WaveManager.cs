@@ -28,6 +28,7 @@ public class WaveManager
 
     public Action<int> _OnNextLevelAutomatic;
     public Action<int> _OnNextLevelOnDemand;
+    public Action<int, int> _OnBossTakeDamage;
 
     public Action _OnWaveManagerFinished;
 
@@ -56,6 +57,8 @@ public class WaveManager
 
             runner._OnEnemyDefeated += _OnEnemyDefeated;
             runner._OnEnemyReachEnd += _OnEnemyReachEnd;
+
+            runner._OnBossTakeDamage += _OnBossTakeDamage;
 
             scenarioRunners.Add(runner);
         }

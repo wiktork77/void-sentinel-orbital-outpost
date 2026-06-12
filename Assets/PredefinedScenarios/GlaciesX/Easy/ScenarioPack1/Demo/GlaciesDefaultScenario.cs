@@ -74,7 +74,7 @@ public class GlaciesDefaultScenario : PredefinedScenario
         levels[14].AddEnemies(EnemyType.ICE_CRAWLER, 3, 0.5f, WaypointsConstants.WaypointRoute.GLACIES9_BOTTOM_FOUNTAIN);
         levels[14].AddEnemies(EnemyType.FROST_DRIFTER, 25, 0.2f, WaypointsConstants.WaypointRoute.GLACIES9_TOP_RIGHT_LAKE);
 
-        levels[15].AddEnemies(EnemyType.SENTINEL_CORE_BOSS, 1, 1.0f, WaypointsConstants.WaypointRoute.GLACIES9_DEFAULT);
+        levels[15].AddEnemies(EnemyType.SENTINEL_CORE_BOSS, 1, 1.0f, WaypointsConstants.WaypointRoute.GLACIES9_BOSS);
 
         return new MapLevelsScenario(levels);
     }

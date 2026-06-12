@@ -16,6 +16,7 @@ public class MapLogicScript : MonoBehaviour
     public Action<int> OnHealthChanged;
     public Action<int> OnCurrencyChanged;
     public Action<int, int> OnLevelIncrease;
+    public Action<int, int> OnBossTakeDamage;
 
     public Action OnGameOver;
     public Action OnGameWon;
@@ -44,6 +45,7 @@ public class MapLogicScript : MonoBehaviour
         waveManager._OnWaveManagerFinished += OnWaveManagerFinished;
         waveManager._OnLoadedLastLevel += OnLoadedLastLevel;
         waveManager._OnNextLevelOnDemand += AddBonusCurrency;
+        waveManager._OnBossTakeDamage += OnBossTakeDamage;
 
         waveManager.SetupScenarioRunners();
 

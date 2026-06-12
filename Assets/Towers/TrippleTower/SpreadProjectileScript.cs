@@ -14,7 +14,7 @@ public class SpreadProjectileScript : ProjectileScript
     {
         if (hasHit) return;
 
-        EnemyScript hitEnemy = other.GetComponentInParent<EnemyScript>();
+        EnemyScript hitEnemy = other.GetComponent<EnemyScript>();
 
         if (hitEnemy != null)
         {

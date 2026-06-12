@@ -10,7 +10,7 @@ public class LaserBoltDataModel : TowerDataModel
 
     public override float Range => 15f;
 
-    public override int Cost => 250;
+    public override int Cost => 200;
 
     public override float ReloadTime => 1.0f;
 }

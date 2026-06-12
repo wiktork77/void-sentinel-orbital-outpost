@@ -13,6 +13,8 @@ public class ScenarioRunner
 
     private List<string> depletedLevelRunnersIds;
 
+    public Action<int, int> _OnBossTakeDamage;
+
     private int currentLevel;
     private int lastLevel;
 
@@ -101,6 +103,8 @@ public class ScenarioRunner
 
         runner._OnEnemyReachEnd += _OnEnemyReachEnd;
         runner._OnEnemyDefeated += _OnEnemyDefeated;
+
+        runner._OnBossTakeDamage += _OnBossTakeDamage;
 
         runner.StartLevel();
     }

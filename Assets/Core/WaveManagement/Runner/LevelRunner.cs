@@ -8,6 +8,8 @@ public class LevelRunner {
 
     public Action<string> _OnFinishedAllEvents;
 
+    public Action<int, int> _OnBossTakeDamage;
+
     private SpawnService spawnService;
     private PathService pathService;
 
@@ -138,6 +140,11 @@ public class LevelRunner {
 
         EnemyScript spawnedEnemy = spawnService.spawnEnemy(nextEvent.EnemyType, spawnPoint.position);
         spawnedEnemy.setupRoute(enemyPath);
+
+        if (spawnedEnemy is IBoss boss)
+        {
+            boss.SetOnBossTakeDamage(_OnBossTakeDamage);
+        }
 
         spawnedEnemy.OnEnemyGoneCallback += OnSpawnEventFinish;
         spawnedEnemy._OnEnemyReachEnd += _OnEnemyReachEnd;

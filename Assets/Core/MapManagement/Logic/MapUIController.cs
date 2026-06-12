@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MapUIController : MonoBehaviour
@@ -34,6 +35,15 @@ public class MapUIController : MonoBehaviour
     [SerializeField]
     private GameObject FastForwardWaveButton;
 
+    [SerializeField]
+    private Image bossHealthBar;
+
+    [SerializeField]
+    private TMP_Text bossHealtText;
+
+    [SerializeField]
+    private GameObject BossGO;
+
     private MapLogicScript mapLogic;
 
     void Awake()
@@ -43,7 +53,7 @@ public class MapUIController : MonoBehaviour
 
         if (mapLogic == null)
         {
-            Debug.LogError("MapUIController nie znalaz≥ MapLogicScript na tym samym obiekcie!");
+            Debug.LogError("MapUIController nie znalaz≈Ç MapLogicScript na tym samym obiekcie!");
         }
     }
 
@@ -58,12 +68,15 @@ public class MapUIController : MonoBehaviour
         mapLogic.OnQuit += QuitToMainMenu;
         mapLogic.OnStartWaves += ManageStartStopWavePanelOnStart;
         mapLogic.OnLoadedLastLevel += OnLoadedLastLevel;
+        mapLogic.OnBossTakeDamage += UpdateBossHealthBar;
     }
 
     void Update()
     {
         
     }
+
+
 
 
     private void updateHealthDisplay(int health)
@@ -138,6 +151,19 @@ public class MapUIController : MonoBehaviour
     {
         FastForwardWaveButton.SetActive(false);
         ManageWavesGO.SetActive(false);
+        SetBossFightElementsVisible();
+    }
+
+    private void SetBossFightElementsVisible()
+    {
+        BossGO.SetActive(true);
+    }
+
+    private void UpdateBossHealthBar(int currentHealth, int maxHealth)
+    {
+        float fillAmount = (float)currentHealth / maxHealth;
+        bossHealthBar.fillAmount = Mathf.Clamp01(fillAmount);
+        bossHealtText.text = $"{currentHealth} / {maxHealth}";
     }
 
     private void ManageStartStopWavePanelOnPause()
